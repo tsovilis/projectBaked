@@ -1,0 +1,90 @@
+body{
+	font: 13px Century, Arial, Helvetica, sans-serif;
+	color: rgb(95,57,18);
+	background-image:url('images/BakedBackground.png');
+	background-repeat:no-repeat;
+	background-color: rgb(95,57,18);
+	line-height: 18px;
+}
+
+#home{
+	border: 0;
+}
+
+img{
+	border: 0px;
+}	
+
+#main {
+	width: 1001px;
+	margin: 0px auto;
+	background-position: top;
+}	
+#content {
+	width: 1001px;
+	padding: 0px 0px 0px 0px;
+}
+
+#totheleft{
+	float: left;
+	padding-right: 20px;
+}
+
+#rightside{
+	width: 230px;
+	padding: 10px 10px 10px 10px;
+	float: right;
+	margin-right: 0px;
+	background-image: url('images/menu_background2.png');
+}
+
+#rightsidelow{
+	width: 230px;
+	padding: 10px 10px 10px 10px;
+	float: right;
+	margin-right: 0px;
+	background-image: url('images/menu_background2.png');
+}
+	
+#inhoud{
+	width: 590px;
+	padding: 10px 10px 10px 10px;
+	float: left;
+	margin-left: 0px;
+	background-image: url('images/content_background.png');
+}
+
+#bestellentaartinfo{
+	padding: 10px 10px 10px 10px;
+	vertical-align: text-top;
+	border-width: 3px;
+	border-style: outset;
+	}
+
+#langetaartinfo{
+	border-width: 3px;
+	border-style: outset;
+	vertical-align: text-top;
+	padding: 10px 10px 10px 10px;
+	}
+
+#kortetaartinfo{
+	vertical-align: text-top;
+	padding: 10px 10px 10px 10px;
+	}
+	
+a 
+	{text-decoration: none; color: rgb(95,57,18);}
+	
+a:hover 
+	{text-decoration: underline; color: rgb(125, 87, 48);}
+	
+.login {
+	width:150;
+}
+	
+.lijntje{
+height: 20px;
+background: url(images/lijntje.JPG) 10px repeat-x;
+}
+
