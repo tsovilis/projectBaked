@@ -72,8 +72,7 @@ Factuur
 <?php
 		include 'verbinding.php';
 		
-		//$bestellingnr 	= 	$_POST["bd"];
-		$bestellingnr	=	1;
+		$bestellingnr 	= 	$_POST["bd"];
 		$account_id 	= 	mysql_query("SELECT Account_id FROM Bestellingen WHERE Bestellingen_id='$bestellingnr' ");
 		$datumfactuur 	= 	mysql_query("SELECT Besteldatum FROM Bestellingen WHERE Bestellingen_id ='$bestellingnr' ");
 		
