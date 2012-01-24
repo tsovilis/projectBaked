@@ -70,7 +70,7 @@ Factuur
 </h2>
 
 <?php
-		include 'verbinding.php';
+		include 'verbinding1.php';
 		
 		$bestellingnr 	= 	$_POST["bd"];
 		$account_id 	= 	mysql_query("SELECT Account_id FROM Bestellingen WHERE Bestellingen_id='$bestellingnr' ");
