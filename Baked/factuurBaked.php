@@ -188,7 +188,8 @@ Factuur
 				print " </table> ";
 				print "<div class='lijntje'> </div> ";
 				print " <p id='totaal'> <u> Totaal:</u> &euro; $totaal</p> ";
-		mysql_close($con);
+
+		include ("closedb.php");
 		
 		Print " Betaling is mogelijk op 98989898 tnv Baked taartenbedrijf te Zuid-scharwoude of contant bij levering."
 	?>
