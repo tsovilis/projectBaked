@@ -48,4 +48,6 @@ if (!mysql_query($sql,$connection))
 
 include ("closedb.php");
 
+header	("Location: adminBaked.php");
+
 ?>
