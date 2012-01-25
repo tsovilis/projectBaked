@@ -5,7 +5,7 @@ include ("verbinding1.php");
 if ((($_FILES["file"]["type"] == "image/gif")
 || ($_FILES["file"]["type"] == "image/jpeg")
 || ($_FILES["file"]["type"] == "image/pjpeg"))
-&& ($_FILES["file"]["size"] < 20000))
+&& ($_FILES["file"]["size"] < 20000000))
   {
   if ($_FILES["file"]["error"] > 0)
     {
@@ -45,8 +45,9 @@ if (!mysql_query($sql,$connection))
   die('Error: ' . mysql_error());
   }
 
-header	("Location: welcomeBaked.html");
 
 include ("closedb.php");
+
+header	("Location: adminBaked.php");
 
 ?>
