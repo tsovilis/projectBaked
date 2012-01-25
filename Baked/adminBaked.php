@@ -53,7 +53,8 @@ Administrator
 					INNER JOIN Account ON Account.Account_id=Bestellingen.Account_id
 					INNER JOIN TaartBestelling ON TaartBestelling.Bestellingen_id=Bestellingen.Bestellingen_id
 					INNER JOIN Taarten ON Taarten.Taarten_id=TaartBestelling.Taarten_id
-					INNER JOIN Bestelstatus ON Bestelstatus.Statusnummer=Bestellingen.BestelStatus");
+					INNER JOIN Bestelstatus ON Bestelstatus.Statusnummer=Bestellingen.BestelStatus
+					WHERE Bestellingen.BestelStatus!=3");
 
 		echo "<table border='0' class='leettable'>
 		<tr>
@@ -104,7 +105,8 @@ include ("closedb.php");
 include ("verbinding1.php"); 
 
 		$query1 = mysql_query("SELECT Bestellingen_id
-				       FROM Bestellingen");
+				       FROM Bestellingen
+				       Where BestelStatus!=3");
 
 		while($row1 = mysql_fetch_array($query1))
 			{
