@@ -50,17 +50,19 @@ obj.value=obj.value.substring(0,mlength)
 		
 		echo "<table border='0' height='100%' width='100%'>";
 		echo "<tr height='180'>";
-		echo "<td width='100%-180px'> <center><h1>" . $row['Taartnaam'] . "</h1></center></td>";
+		echo "<td class = 'center' width='100%-180px'><h1>" . $row['Taartnaam'] . "</h1></td>";
 		echo "<td width='180'><img src='images/".$row['Plaatje']."'alt='Taart'	width='180'	height='180'/> </td>";
 		echo "</tr>";
 		echo "<tr>";
 		echo "<td id='langetaartinfo'>" .$row['BeschrijvingTaart']. "</td>";
 		?>
 		
-		<td id="bestellentaartinfo"> <center> <h3> Bestellen </h3> </center> </br>
-		<form name="taartspecificaties" method="post"
+		<td id="bestellentaartinfo">
+		<form name="taartspecificaties" method="post">
+		
 		<?php
-		echo "<center><h4>" . $row['Taartnaam'] . "</center></h4>";
+		echo "<div class = 'center'><h3>" . $row['Taartnaam'] . "</h3>";
+		echo "<h4>&euro;" . $row['Prijs'] . "</h4></div>";
 		include ("closedb.php");
 		?>
 			<table width="100%"><tr>
@@ -160,9 +162,9 @@ obj.value=obj.value.substring(0,mlength)
 					</select></td></tr>
 					</table>
 			</form>
-			<center><a href="winkelwagenBaked.html"><img src="images/bestellen1.png" alt="Bestellen"
+			<div class= 'center'><a href="winkelwagenBaked.html"><img src="images/bestellen1.png" alt="Bestellen"
 			onmouseover="src='images/bestellen2.png';"
-			onmouseout="src='images/bestellen1.png';"/></a></center>
+			onmouseout="src='images/bestellen1.png';"/></a></div>
 		</td>			
 	</tr>
 </table> 

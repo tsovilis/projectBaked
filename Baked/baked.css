@@ -79,6 +79,10 @@ img{
 	font-size: 18px;
 	}
 	
+.center{
+	text-align:center
+	}
+	
 a 
 	{text-decoration: none; color: rgb(95,57,18);}
 	
@@ -88,6 +92,10 @@ a:hover
 .login {
 	width:150;
 }
+
+textarea {
+    resize: none;
+} 
 	
 .lijntje{
 height: 20px;
