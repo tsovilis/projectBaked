@@ -31,14 +31,22 @@ include("verbinding1.php");
     if ($pw[0] === "1")
       $success = true;
 
-    if ($success)
+   if ($success) {
       print('Login succesful!<br />Click <a href="accountBaked.php\">here</a> to continue.<br />');
-    else
+	  include("closedb.php");
+
+  	  require_once('inc/functions.inc.php');
+	  session_start();{
+	    $_SESSION['email'] = $email;
+		header("location:winkelwagen.php");
+		}
+		}
+	else
       print('Login incorrect.<br />Click <a href="' .
             $_SERVER['PHP_SELF'] . '">here</a> to try again.<br />');
 
     include("closedb.php");
-  }
+	  }
   else
     # Switch to SSL connection if necessary.
     # note the two '=' and '@' in the following:
