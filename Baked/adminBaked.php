@@ -151,7 +151,8 @@ include ("closedb.php");
 include ("verbinding1.php"); 
 
 		$query1 = mysql_query("SELECT Bestellingen_id
-				       FROM Bestellingen");
+				       FROM Bestellingen
+				       WHERE BestelStatus!=3");
 
 		while($row1 = mysql_fetch_array($query1))
 			{
@@ -217,6 +218,14 @@ include ("closedb.php");
 
 
 		<input type="submit" name="submit" value="Verwijder" />
+	
+</form>
+
+<form action="adminoverzichtBaked.php" method="post" enctype="multipart/form-data">
+
+<h3> Bestellingen Archief</h3>
+
+<input type="submit" name="submit" value="Archief" />
 	
 </form>
 
