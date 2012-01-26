@@ -1,6 +1,13 @@
 <?php
 include("verbinding1.php");
-
+	
+	if(isset($_SESSION['Login'])){
+	echo('Klik <a href="accountBaked.php\">hier</a> om naar uw account te gaan.<br />');
+	echo writeShoppingCart();
+	}
+	
+	else{
+	
   if (!empty($_POST['email'])) {    
 
     $success = false;
@@ -31,15 +38,15 @@ include("verbinding1.php");
     if ($pw[0] === "1") {
       $success = true;
 
-   if ($success) {
-		print('Login succesful!<br />Click <a href="accountBaked.php\">here</a> to continue.<br />');
-		include("closedb.php");
+		if ($success) {
+			print('Login gelukt!<br />Klik <a href="accountBaked.php\">hier</a> om verder te gaan.<br />');
+			include("closedb.php");
  
-		$_SESSION['Login'] = 'ingelogd';
-		header("location:winkelwagen.php");
-		}	
-		echo writeShoppingCart();
+			$_SESSION['Login'] = 'ingelogd';
+			header("location:winkelwagen.php");
 		}
+		
+	}
 	else
       print('Login incorrect.<br />Klik <a href="' .
             $_SERVER['PHP_SELF'] . '">hier</a> om het opnieuw te proberen.<br />');
@@ -90,6 +97,7 @@ Login
 </html>
 EOT;
 	}
-
 }
+}
+
 ?>

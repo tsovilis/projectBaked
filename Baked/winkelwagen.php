@@ -2,6 +2,7 @@
 	require_once('inc/functions.inc.php');
 	  session_start();{
 	    if($_SESSION['Login'] === 'ingelogd');
+		if($_SESSION['cart'] === 'cart';
 	}
 	?>
 

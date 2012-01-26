@@ -1,14 +1,14 @@
 <?php
 function writeShoppingCart() {
 	$cart = 0;
-	$cart = $_SESSION['cart'];
+	$_SESSION['cart'] = 'cart';
 	if (!$cart) {
 		return '<p>U heeft geen producten in uw winkelwagen</p>';
 	} else {
 		// Parse the cart session variable
 		$items = explode(',',$cart);
 		$s = (count($items) > 1) ? 's':'';
-		return '<p>You have <a href="cart.php">'.count($items).' item'.$s.' in your shopping cart</a></p>';
+		return '<p>U heeft <a href="cart.php">'.count($items).' product'.$s.' in uw winkelwagen</a></p>';
 	}
 }
 
