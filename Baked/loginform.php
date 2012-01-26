@@ -41,7 +41,7 @@ include("verbinding1.php");
 		if ($success) {
 			print('Login gelukt!<br />Klik <a href="accountBaked.php\">hier</a> om verder te gaan.<br />');
 			include("closedb.php");
- 
+			session_start();
 			$_SESSION['Login'] = 'ingelogd';
 			header("location:winkelwagen.php");
 		}
@@ -70,7 +70,7 @@ include("verbinding1.php");
 	echo <<<EOT
 <html>
 <head>
-Login
+<strong>Login</strong>
 </head>
 <body>
 <table border="0">
