@@ -24,7 +24,7 @@ function showCart() {
 		$output[] = '<form action="cart.php?action=update" method="post" id="cart">';
 		$output[] = '<table>';
 		foreach ($contents as $id=>$qty) {
-			$sql = 'SELECT * FROM books WHERE id = '.$id;
+			$sql = 'SELECT * FROM Taarten WHERE Taarten_id = '.$id;
 			$result = $db->query($sql);
 			$row = $result->fetch();
 			extract($row);
@@ -42,7 +42,7 @@ function showCart() {
 		$output[] = '<div><button type="submit">Update cart</button></div>';
 		$output[] = '</form>';
 	} else {
-		$output[] = '<p>You shopping cart is empty.</p>';
+		$output[] = '<p>Uw winkelwagen is leeg.</p>';
 	}
 	return join('',$output);
 }

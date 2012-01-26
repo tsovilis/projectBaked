@@ -1,3 +1,11 @@
+<?php
+require_once('inc/functions.inc.php');
+  session_start();{
+    if($_SESSION['Login'] === 'ingelogd');
+	if($_SESSION['cart'] === 'cart');
+}
+?>
+
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
@@ -162,9 +170,10 @@ obj.value=obj.value.substring(0,mlength)
 					</select></td></tr>
 					</table>
 			</form>
-			<div class= 'center'><a href="winkelwagenBaked.html"><img src="images/bestellen1.png" alt="Bestellen"
-			onmouseover="src='images/bestellen2.png';"
-			onmouseout="src='images/bestellen1.png';"/></a></div>
+			
+			<?php
+			echo "<div class='center'><a href='winkelwagen.php?action=add&id=" .$row['Taarten_id']. "'><img src='images/bestellen1.png' alt='Bestellen' onmouseover='src='images/bestellen2.png';' onmouseout='src='images/bestellen1.png';'/></a></div>"
+			?>
 		</td>			
 	</tr>
 </table> 
