@@ -1,7 +1,4 @@
 <?php
-require_once('inc/functions.inc.php');
-session_start();{
-
 include("verbinding1.php");
 
   if (!empty($_POST['email'])) {    
@@ -93,6 +90,6 @@ Login
 </html>
 EOT;
 	}
-	}
+
 }
 ?>
