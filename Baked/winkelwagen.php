@@ -92,7 +92,7 @@ obj.value=obj.value.substring(0,mlength)
 
 <body>
 <div id="main">
-	<a href="infoBaked.html"><img src="images/Bakedsign.png" alt=""/></a>
+	<a href="infoBaked.php"><img src="images/Bakedsign.png" alt=""/></a>
 
 	<div id="content">
 		
