@@ -88,6 +88,51 @@ Administrator
 include ("closedb.php");
 	?>
 
+<div class='lijntje'></div>
+
+<h3>Wijzig de status van de bestelling</h3>
+
+
+<table border="0" class="leettable">
+<tr>
+	<th class='leetcell'>Nummer van de bestelling</th>
+	<th class='leetcell'>Status</th>
+  	<th class='leetcell'> Wijzig!</th>
+</tr>
+<tr>
+<td class="leetcell">
+<form action="status.php" method="post">
+<select name="bestelling">
+	<?php
+include ("verbinding1.php"); 
+
+		$query1 = mysql_query("SELECT Bestellingen_id
+				       FROM Bestellingen
+				       Where BestelStatus=3");
+
+		while($row1 = mysql_fetch_array($query1))
+			{
+			  echo "<option value=\"".$row1['Bestellingen_id']."\">".$row1['Bestellingen_id']."</option>\n  ";
+			}
+
+include ("closedb.php");
+	?>
+</select>
+</td>
+<td class="leetcell">
+<select name="status">
+  <option value="0">Besteld</option>
+  <option value="1">Betaald</option>
+  <option value="2">Gebakken</option>
+  <option value="3">Verzonden</option>
+</select>
+</td>
+<td class="leetcell">
+<input type="submit" value="Wijzig" />
+</td>
+</tr>
+</form>
+</table>
 
 </div>
 
