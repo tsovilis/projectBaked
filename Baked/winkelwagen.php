@@ -1,7 +1,6 @@
 <?php
 require_once('inc/functions.inc.php');
   session_start();
-
 ?>
 
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
@@ -48,14 +47,14 @@ obj.value=obj.value.substring(0,mlength)
 		
 		<?php
 		include ("verbinding1.php");
-
-		$Account_id = $_SESSION['Account_id'];
 		
-		echo   $Account_id;
-
-		$query = mysql_query("SELECT * 
-					FROM Winkelwagen 
-					WHERE Account_id = ".$Account_id."");
+		$q = 'SELECT Taarten.Taartnaam, Winkelwagen.Tekst, Winkelwagen.Aantal, Winkelwagen.Kaarsjes, Winkelwagen.Prijs
+					FROM Winkelwagen
+					INNER JOIN Taarten ON Taarten.Taarten_id=Winkelwagen.Taarten_id
+					INNER JOIN Account ON Account.Account_id=Winkelwagen.Account_id
+					WHERE' . ' Emailadres = "' . $email . '"';
+		
+		$query = mysql_query($q);
 					
 		
 		echo 	"<table border='1' width='580'><tr>

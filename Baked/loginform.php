@@ -1,10 +1,12 @@
 <?php
+
+
 include("verbinding1.php");
 	
-	if(isset($_SESSION['Login'])){
+	if(isset($_SESSION['email'])){
 	echo('<a href="accountBaked.php">Account</a><br />');
 	echo('<a href="winkelwagen.php">Winkelwagen</a><br />');
-	echo('<a href="accountBaked.php">Uitloggen</a><br />');
+	echo('<a href="logout.php">Uitloggen</a><br />');
 	echo writeShoppingCart();
 	}
 	
@@ -27,24 +29,28 @@ include("verbinding1.php");
     #     "( '{$_POST["username"]}', '" .
     #     MD5($_POST["password"]) . "')";
 
+	$email = $_POST['email'];
+	
     $q = 'SELECT * FROM Account WHERE ' .
          'Emailadres = "' .  $_POST["email"] . '" AND ' .
          'Wachtwoord = "' .  MD5($_POST["wachtwoord"]) . '"';
 
+	
+		 
     $result = mysql_query($q);
     if (!$result) {
       die("Invalid query: " . mysql_error());
     }
     $pw = mysql_fetch_array($result);
-
+	
     if ($pw[0] === "1") {
       $success = true;
 
 		if ($success) {
 			print('Login gelukt!<br />Klik <a href="accountBaked.php">hier</a> om verder te gaan.<br />');
 			session_start();
-			$_SESSION['Login'] = 'ingelogd';
-			$_SESSION['Account_id'] = $pw['Account_id'] ;
+			$_SESSION['login'] = "true";
+			$_SESSION['email'] = $email;
 			include("closedb.php");
 			header("location:winkelwagen.php");
 			
