@@ -2,7 +2,9 @@
 include("verbinding1.php");
 	
 	if(isset($_SESSION['Login'])){
-	echo('Klik <a href="accountBaked.php\">hier</a> om naar uw account te gaan.<br />');
+	echo('<a href="accountBaked.php">Account</a><br />');
+	echo('<a href="winkelwagen.php">Winkelwagen</a><br />');
+	echo('<a href="accountBaked.php">Uitloggen</a><br />');
 	echo writeShoppingCart();
 	}
 	
@@ -39,7 +41,7 @@ include("verbinding1.php");
       $success = true;
 
 		if ($success) {
-			print('Login gelukt!<br />Klik <a href="accountBaked.php\">hier</a> om verder te gaan.<br />');
+			print('Login gelukt!<br />Klik <a href="accountBaked.php">hier</a> om verder te gaan.<br />');
 			include("closedb.php");
 			session_start();
 			$_SESSION['Login'] = 'ingelogd';
