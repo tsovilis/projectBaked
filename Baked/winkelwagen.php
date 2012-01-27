@@ -10,9 +10,9 @@ $action = $_GET['action'];
 switch ($action) {
 	case 'add':
 		if ($cart) {
-			$cart .= ','.$_GET['Taarten'];
+			$cart .= ','.$_GET['id'];
 		} else {
-			$cart = $_GET['Taarten'];
+			$cart = $_GET['id'];
 		}
 		break;
 	case 'delete':
