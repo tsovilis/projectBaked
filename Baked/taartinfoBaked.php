@@ -172,7 +172,8 @@ obj.value=obj.value.substring(0,mlength)
 			</form>
 			
 			<?php
-			echo "<div class='center'><a href='winkelwagen.php?action=add&id=" .$row['Taarten_id']. "'><img src='images/bestellen1.png' alt='Bestellen' onmouseover='src='images/bestellen2.png';' onmouseout='src='images/bestellen1.png';'/></a></div>"
+			echo "<div class='center'><a href='winkelwagen.php?action=add&id=" .$row['Taarten_id']. "'>
+<img src= 'images/bestellen1.png' alt='Bestellen' onmouseover= src='images/bestellen2.png'; onmouseout= src='images/bestellen1.png';/></a></div>";
 			?>
 		</td>			
 	</tr>
