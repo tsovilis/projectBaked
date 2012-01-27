@@ -48,18 +48,18 @@ Administrator
 	<?php
 		include ("verbinding1.php"); 
 
-		$result = mysql_query("SELECT Bestellingen.Bestellingen_id, Account.Account_id, Taarten.Taartnaam, TaartBestelling.Aantal, TaartBestelling.Tekst, TaartBestelling.Kaarsjes, Bestellingen.Leverdatum, Bestelstatus.Status
+		$result = mysql_query("SELECT Bestellingen.Bestellingen_id, Taarten.Taartnaam, TaartBestelling.Aantal, TaartBestelling.Tekst, TaartBestelling.Kaarsjes, Bestellingen.Leverdatum, Bestelstatus.Status
 					FROM Bestellingen
 					INNER JOIN Account ON Account.Account_id=Bestellingen.Account_id
 					INNER JOIN TaartBestelling ON TaartBestelling.Bestellingen_id=Bestellingen.Bestellingen_id
 					INNER JOIN Taarten ON Taarten.Taarten_id=TaartBestelling.Taarten_id
 					INNER JOIN Bestelstatus ON Bestelstatus.Statusnummer=Bestellingen.BestelStatus
-					WHERE Bestellingen.BestelStatus!=3");
+					WHERE Bestellingen.BestelStatus!=3
+					ORDER BY Bestellingen.Leverdatum");
 
 		echo "<table border='0' class='leettable'>
 		<tr>
 		<th class='leetcell'>Bestelling ID</th>
-		<th class='leetcell'>Account ID</th>
 		<th class='leetcell'>Taartnaam</th>
 		<th class='leetcell'>Aantal</th>
 		<th class='leetcell'>Tekst</th>
@@ -72,7 +72,6 @@ Administrator
 		  {
 		  echo "<tr>";
 		  echo "<td class='leetcell'>" . $row['Bestellingen_id'] . "</td>";
-		  echo "<td class='leetcell'>" . $row['Account_id'] . "</td>";
 		  echo "<td class='leetcell'>" . $row['Taartnaam'] . "</td>";
 		  echo "<td class='leetcell'>" . $row['Aantal'] . "</td>";
 		  echo "<td class='leetcell'>" . $row['Tekst'] . "</td>";
@@ -87,6 +86,8 @@ Administrator
 		
 include ("closedb.php");
 	?>
+
+<div class='lijntje'></div>
 
 <h3>Wijzig de status van de bestelling</h3>
 
@@ -132,7 +133,7 @@ include ("closedb.php");
 </form>
 </table>
 
-
+<div class='lijntje'></div>
 
 
 <h3>Factureer</h3>
@@ -141,7 +142,6 @@ include ("closedb.php");
 <table border="0" class="leettable">
 <tr>
 	<th class="leetcell">Nummer van de bestelling</th>
-  	<th class="leetcell"> Naar factuur!</th>
 </tr>
 <tr>
 <td class="leetcell">
@@ -171,6 +171,8 @@ include ("closedb.php");
 </form>
 </table>
 
+<div class='lijntje'></div>
+
 <form action="taartenwijzigenBaked2.php" method="post" enctype="multipart/form-data">
 
 <h3> Wijzig een taart!</h3>
@@ -198,6 +200,8 @@ include ("closedb.php");
 
 <form action="verwijderen.php" method="post" enctype="multipart/form-data">
 
+<div class='lijntje'></div>
+
 <h3> Verwijder een taart!</h3>
 
 <select name="verwijderen">
@@ -220,6 +224,8 @@ include ("closedb.php");
 		<input type="submit" name="submit" value="Verwijder" />
 	
 </form>
+
+<div class='lijntje'></div>
 
 <form action="adminoverzichtBaked.php" method="post" enctype="multipart/form-data">
 
