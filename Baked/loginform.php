@@ -35,7 +35,7 @@ include("verbinding1.php");
     if (!$result) {
       die("Invalid query: " . mysql_error());
     }
-    $pw = mysql_fetch_row($result);
+    $pw = mysql_fetch_array($result);
 
     if ($pw[0] === "1") {
       $success = true;
@@ -45,6 +45,7 @@ include("verbinding1.php");
 			include("closedb.php");
 			session_start();
 			$_SESSION['Login'] = 'ingelogd';
+			$_SESSION['Account_id'] = $pw['Account_id'] ;
 			header("location:winkelwagen.php");
 		}
 		
