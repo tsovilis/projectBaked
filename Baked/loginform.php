@@ -27,7 +27,7 @@ include("verbinding1.php");
     #     "( '{$_POST["username"]}', '" .
     #     MD5($_POST["password"]) . "')";
 
-    $q = 'SELECT 1 FROM Account WHERE ' .
+    $q = 'SELECT * FROM Account WHERE ' .
          'Emailadres = "' .  $_POST["email"] . '" AND ' .
          'Wachtwoord = "' .  MD5($_POST["wachtwoord"]) . '"';
 
@@ -42,11 +42,12 @@ include("verbinding1.php");
 
 		if ($success) {
 			print('Login gelukt!<br />Klik <a href="accountBaked.php">hier</a> om verder te gaan.<br />');
-			include("closedb.php");
 			session_start();
 			$_SESSION['Login'] = 'ingelogd';
 			$_SESSION['Account_id'] = $pw['Account_id'] ;
+			include("closedb.php");
 			header("location:winkelwagen.php");
+			
 		}
 		
 	}

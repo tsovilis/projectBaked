@@ -1,9 +1,6 @@
 <?php
 require_once('inc/functions.inc.php');
-  session_start();{
-    if($_SESSION['Login'] === 'ingelogd');
-	if($_SESSION['cart'] === 'cart');
-}
+  session_start();
 
 ?>
 
@@ -39,12 +36,12 @@ obj.value=obj.value.substring(0,mlength)
 	<div id="content">
 		
 		<div id="totheleft">
-<?php include ("snelmenuBaked.html"); ?>
+		<?php include ("snelmenuBaked.html"); ?>
 		</div>
 		
 		<div id="rightside">	
 
-<?php include ("loginform.php"); ?>
+		<?php include ("loginform.php"); ?>
 		</div>
 		
 		<div id="inhoud">
@@ -53,13 +50,14 @@ obj.value=obj.value.substring(0,mlength)
 		include ("verbinding1.php");
 
 		$Account_id = $_SESSION['Account_id'];
-
-		$query = mysql_query("SELECT Winkelwagen.Account_id, Taarten.Taartnaam, Winkelwagen.Tekst, Winkelwagen.Aantal, Winkelwagen.Kaarsjes, Taarten.Prijs, Winkelwagen.Leverdatum	
-					FROM Winkelwagen 
-					WHERE Account_id= $Account_id
-					INNER JOIN Taarten ON Taarten.Taarten_id=Winkelwagen.Taarten_id");
 		
-		echo   $_SESSION['Account_id'];
+		echo   $Account_id;
+
+		$query = mysql_query("SELECT * 
+					FROM Winkelwagen 
+					WHERE Account_id = ".$Account_id."");
+					
+		
 		echo 	"<table border='1' width='580'><tr>
 				<th> Taartnaam </th>
 				<th> Tekst</th>
@@ -84,6 +82,8 @@ obj.value=obj.value.substring(0,mlength)
 		echo "</table>";
 		include ("closedb.php");
 		
+		
+		//Winkelwagen.Account_id, Taarten.Taartnaam, Winkelwagen.Tekst, Winkelwagen.Aantal, Winkelwagen.Kaarsjes, Taarten.Prijs, Winkelwagen.Leverdatum	
 		
 		
 		/*		
