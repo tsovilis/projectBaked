@@ -93,76 +93,7 @@ obj.value=obj.value.substring(0,mlength)
 		include ("closedb.php");
 		
 		
-		//Winkelwagen.Account_id, Taarten.Taartnaam, Winkelwagen.Tekst, Winkelwagen.Aantal, Winkelwagen.Kaarsjes, Taarten.Prijs, Winkelwagen.Leverdatum	
-		
-		
-		/*		
-		echo writeShoppingCart();
-		echo "<br />";
-		
-		echo "Controleer hoeveelheden:";
-		echo showCart();
-		*/
-		
-		/*
-$cart = $_SESSION['cart'];
-$action = $_GET['action'];
-switch ($action) {
-	case 'add':
-		if ($cart) {
-			$cart .= ','.$_GET['id'];
-		} else {
-			$cart = $_GET['id'];
-		}
-		break;
-	case 'delete':
-		if ($cart) {
-			$items = explode(',',$cart);
-			$newcart = '';
-			foreach ($items as $item) {
-				if ($_GET['Taarten_id'] != $item) {
-					if ($newcart != '') {
-						$newcart .= ','.$item;
-					} else {
-						$newcart = $item;
-					}
-				}
-			}
-			$cart = $newcart;
-		}
-		break;
-	case 'update':
-	if ($cart) {
-		$newcart = '';
-		foreach ($_POST as $key=>$value) {
-			if (stristr($key,'qty')) {
-				$id = str_replace('qty','',$key);
-				$items = ($newcart != '') ? explode(',',$newcart) : explode(',',$cart);
-				$newcart = '';
-				foreach ($items as $item) {
-					if ($id != $item) {
-						if ($newcart != '') {
-							$newcart .= ','.$item;
-						} else {
-							$newcart = $item;
-						}
-					}
-				}
-				for ($i=1;$i<=$value;$i++) {
-					if ($newcart != '') {
-						$newcart .= ','.$id;
-					} else {
-						$newcart = $id;
-					}
-				}
-			}
-		}
-	}
-	$cart = $newcart;
-	break;
-}
-$_SESSION['cart'] = $cart;
-*/
+
 		?>
 		
 		</div>
