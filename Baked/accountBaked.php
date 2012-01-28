@@ -47,7 +47,8 @@ Uw account
 					INNER JOIN Account ON Account.Account_id=Bestellingen.Account_id
 					INNER JOIN TaartBestelling ON TaartBestelling.Bestellingen_id=Bestellingen.Bestellingen_id
 					INNER JOIN Taarten ON Taarten.Taarten_id=TaartBestelling.Taarten_id
-					INNER JOIN Bestelstatus ON Bestelstatus.Statusnummer=Bestellingen.BestelStatus");
+					INNER JOIN Bestelstatus ON Bestelstatus.Statusnummer=Bestellingen.BestelStatus
+					WHERE Account.Emailadres = '" . $_SESSION['email'] . "'");
 
 		echo "<table border='1'>
 		<tr>
