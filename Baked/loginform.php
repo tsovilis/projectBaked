@@ -10,61 +10,37 @@ include("verbinding1.php");
 	echo writeShoppingCart();
 	}
 	
-	else{
+else{
 	
-  if (!empty($_POST['email'])) {    
-
-    $success = false;
-
-    # HTML form and PHP code merged,
-    # username and password stored in database,
-    # password checked by database:
-    # note change in form action: action="{$_SERVER['PHP_SELF']}",
-    # form input is escaped,
-    # switch to HTTPS connection if necessary,
-    # password hashed into db with MD5().
-
-    # Uncomment to quickly insert username/password in db:
-    #$q = "INSERT INTO users1 ( username, password ) VALUES " .
-    #     "( '{$_POST["username"]}', '" .
-    #     MD5($_POST["password"]) . "')";
-
 	$email = $_POST['email'];
-	
-    $q = 'SELECT * FROM Account WHERE ' .
-         'Emailadres = "' .  $_POST["email"] . '" AND ' .
-         'Wachtwoord = "' .  MD5($_POST["wachtwoord"]) . '"';
+	$wachtwoord = $_POST['wachtwoord'];
+	$result = mysql_query( "SELECT * 
+			    FROM Account 
+			    WHERE Emailadres = '$email'
+			    AND Wachtwoord = '$wachtwoord'");
 
 	
-		 
-    $result = mysql_query($q);
-    if (!$result) {
-      die("Invalid query: " . mysql_error());
-    }
-    $pw = mysql_fetch_array($result);
-	
-    if ($pw[0] === "1") {
-      $success = true;
+	$pw = mysql_fetch_array($result);
 
-		if ($success) {
-			print('Login gelukt!<br />Klik <a href="accountBaked.php">hier</a> om verder te gaan.<br />');
+    if (!$pw) {
+
+      print('Login incorrect.<br />Klik <a href="' .
+            $_SERVER['PHP_SELF'] . '">hier</a> om het opnieuw te proberen.<br />');
+		
+		}
+		
+	else  {
+ 		print('Login gelukt!<br />Klik <a href="accountBaked.php">hier</a> om verder te gaan.<br />');
 			session_start();
 			$_SESSION['login'] = "true";
 			$_SESSION['email'] = $email;
 			include("closedb.php");
 			header("location:winkelwagen.php");
-			
-		}
-		
-	}
-	else
-      print('Login incorrect.<br />Klik <a href="' .
-            $_SERVER['PHP_SELF'] . '">hier</a> om het opnieuw te proberen.<br />');
 
-    include("closedb.php");
-	  }
-	  
-  else {
+
+   		 include("closedb.php");
+	  	}
+
     # Switch to SSL connection if necessary.
     # note the two '=' and '@' in the following:
     if (@$_SERVER['HTTPS'] !== 'on')
@@ -108,6 +84,6 @@ include("verbinding1.php");
 EOT;
 	}
 }
-}
+
 
 ?>
