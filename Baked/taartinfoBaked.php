@@ -66,7 +66,7 @@ obj.value=obj.value.substring(0,mlength)
 		?>
 		
 		<td id="bestellentaartinfo">
-		<form name="taartspecificaties" method="post">
+		<form action="tijdelijk.php" method="post">
 		
 		<?php
 		echo "<div class = 'center'><h3>" . $row['Taartnaam'] . "</h3>";
@@ -74,6 +74,13 @@ obj.value=obj.value.substring(0,mlength)
 		include ("closedb.php");
 		?>
 			<table width="100%"><tr>
+						<select name="taartid">
+							<?php
+	
+										  echo "<option value=\"".$_GET['taart']."\">".$_GET['taart']."</option>\n  ";
+													
+							?>
+						</select>
 			<td width="50">Kaarsjes:</td>
 					<td><select name="kaarsjes">
 						<option value="0">0</option>
@@ -120,31 +127,31 @@ obj.value=obj.value.substring(0,mlength)
 										
 					<tr><td><i>Maand:</i></td>
 					<td><select name="bestelmaand">
-					<option value="jan">Januari</option>
-					<option value="feb">Februari</option>
-					<option value="mrt">Maart</option>
-					<option value="apr">April</option>
-					<option value="mei">Mei</option>
-					<option value="jun">Juni</option>
-					<option value="jul">Juli</option>
-					<option value="aug">Augustus</option>
-					<option value="sep">September</option>
-					<option value="okt">Oktober</option>
-					<option value="nov">November</option>
-					<option value="dec">December</option>
+					<option value="01">Januari</option>
+					<option value="02">Februari</option>
+					<option value="03">Maart</option>
+					<option value="04">April</option>
+					<option value="05">Mei</option>
+					<option value="06">Juni</option>
+					<option value="07">Juli</option>
+					<option value="08">Augustus</option>
+					<option value="09">September</option>
+					<option value="10">Oktober</option>
+					<option value="11">November</option>
+					<option value="12">December</option>
 					</select></td></tr>
 					
 					<tr><td><i>Dag:</i></td>
 					<td><select name="besteldag">
-					<option value="1">1</option>
-					<option value="2">2</option>
-					<option value="3">3</option>
-					<option value="4">4</option>
-					<option value="5">5</option>
-					<option value="6">6</option>
-					<option value="7">7</option>
-					<option value="8">8</option>
-					<option value="9">9</option>
+					<option value="01">1</option>
+					<option value="02">2</option>
+					<option value="03">3</option>
+					<option value="04">4</option>
+					<option value="05">5</option>
+					<option value="06">6</option>
+					<option value="07">7</option>
+					<option value="08">8</option>
+					<option value="09">9</option>
 					<option value="10">10</option>
 					<option value="11">11</option>
 					<option value="12">12</option>
@@ -169,12 +176,12 @@ obj.value=obj.value.substring(0,mlength)
 					<option value="31">31</option>
 					</select></td></tr>
 					</table>
-			</form>
 			
-			<?php
-			echo "<div class='center'><a href='winkelwagen.php?action=add&id=" .$row['Taarten_id']. "'>
-<img src= 'images/bestellen1.png' alt='Bestellen' onmouseover= src='images/bestellen2.png'; onmouseout= src='images/bestellen1.png';/></a></div>";
-			?>
+			
+			<div class='center'><input type="submit" name="<?php $row['Taarten_id'] ?>"></div>
+
+</form>
+			
 		</td>			
 	</tr>
 </table> 
