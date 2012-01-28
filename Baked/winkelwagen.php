@@ -46,13 +46,24 @@ obj.value=obj.value.substring(0,mlength)
 		<div id="inhoud">
 		
 		<?php
+
 		include ("verbinding1.php");
+
+		$email = $_SESSION['email'];
 		
-		$q = 'SELECT Taarten.Taartnaam, Winkelwagen.Tekst, Winkelwagen.Aantal, Winkelwagen.Kaarsjes, Winkelwagen.Prijs
+		$query1 = mysql_query("SELECT Account_id
+		       			FROM Account
+		       			WHERE Emailadres='$email'");
+
+		while($row1 = mysql_fetch_array($query1))
+			{
+			  $account = $row1['Account_id'];
+			}
+		
+		$q = ("SELECT Taarten.Taartnaam, Winkelwagen.Tekst, Winkelwagen.Aantal, Winkelwagen.Kaarsjes, Winkelwagen.Prijs, Winkelwagen.Leverdatum
 					FROM Winkelwagen
 					INNER JOIN Taarten ON Taarten.Taarten_id=Winkelwagen.Taarten_id
-					INNER JOIN Account ON Account.Account_id=Winkelwagen.Account_id
-					WHERE' . ' Emailadres = "' . $email . '"';
+					WHERE Account_id='$account'");
 		
 		$query = mysql_query($q);
 					
