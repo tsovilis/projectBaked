@@ -27,9 +27,9 @@ $lever = $_POST['besteldag']. '-' . $_POST['bestelmaand'] . '-' . $_POST['bestel
 
 
 
-$sql="INSERT INTO Winkelwagen (Account_id, Tekst, Leverdatum, Aantal, Kaarsjes, Prijs) 
+$sql="INSERT INTO Winkelwagen (Account_id, Tekst, Leverdatum, Taarten_id, Aantal, Kaarsjes, Prijs) 
 		VALUES		
-		('$account', '$_POST[Tekst]', '$lever', '$_POST[aantal]', '$_POST[kaarsjes]', '$prijs')";
+		('$account', '$_POST[Tekst]', '$lever','$_POST[taartid]', '$_POST[aantal]', '$_POST[kaarsjes]', '$prijs')";
 
 if (!mysql_query($sql,$connection))
   {
