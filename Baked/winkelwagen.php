@@ -60,7 +60,7 @@ obj.value=obj.value.substring(0,mlength)
 			  $account = $row1['Account_id'];
 			}
 		
-		$q = ("SELECT Taarten.Taartnaam, Winkelwagen.Tekst, Winkelwagen.Aantal, Winkelwagen.Kaarsjes, Winkelwagen.Prijs, Winkelwagen.Leverdatum
+		$q = ("SELECT Taarten.Taartnaam, Winkelwagen.Kaarsjes, Winkelwagen.Tekst, Winkelwagen.Aantal, Winkelwagen.Prijs
 					FROM Winkelwagen
 					INNER JOIN Taarten ON Taarten.Taarten_id=Winkelwagen.Taarten_id
 					WHERE Account_id='$account'");
@@ -68,29 +68,55 @@ obj.value=obj.value.substring(0,mlength)
 		$query = mysql_query($q);
 					
 		
-		echo 	"<table border='1' width='580'><tr>
-				<th> Taartnaam </th>
-				<th> Tekst</th>
-				<th> Aantal</th>
-				<th> Kaarsjes</th>
-				<th> Prijs</th>
-				<th> Leverdatum</th>
-				</tr>";
-		
-		while($result = mysql_fetch_array($query))
-		{
-		echo "<tr>";
-		echo "<td>" . $result['Taartnaam'] . "</td>";
-		echo "<td>" . $result['Tekst'] . "</td>";		
-		echo "<td>" . $result['Aantal'] . "</td>";
-		echo "<td>" . $result['Kaarsjes'] . "</td>";
-		echo "<td>" . $result['Prijs'] . "</td>";
-		echo "<td>" . $result['Leverdatum'] . "</td>";
-		echo "</tr>";
-		}
-		
-		echo "</table>";
-		include ("closedb.php");
+				print "<table WIDTH='590'>";
+				print "	<th width= '80px'> Product  </th> 
+						<th width= '35px'> Kaarsjes </th>
+						<th width= '80px'> Tekst </th>
+						<th width= '35px'> Aantal  </th> 
+						<th width= '35px'> Prijs </th> 
+						<th width= '40px'> Subtotaal </th>";
+				
+				$subtotaal = 0.0;
+				$totaal = 0.0;
+				
+				while($producten2 = mysql_fetch_array($query))
+					{					
+					print " <tr><td> ";
+					print " <center> ";
+					print "{$producten2['Taartnaam']} ";
+					print " </center> ";
+					print " </td> <td>";
+					print " <center> ";
+					print "{$producten2['Kaarsjes']} ";
+					print " </center> ";
+					print " </td> <td>";
+					print " <center> ";
+					print "{$producten2['Tekst']} ";
+					print " </center> ";
+					print " </td> <td>";
+					print " <center>";
+					print "{$producten2['Aantal']} x ";
+					print " </center> ";
+					print " </td> <td>";
+					print " <center> ";
+					print " &euro; {$producten2['Prijs']}  ";
+					print " </center> ";
+					print " </td> <td>";
+					print " <center> ";
+					
+					$prijs 	= $producten2['Prijs'];
+					$aantal	= $producten2['Aantal'];
+					$subtotaal = $prijs * $aantal;
+					$totaal	= $totaal + $subtotaal;
+					
+					print " &euro; $subtotaal ";
+					print " </center> ";
+					print " </td> </tr> ";
+					}
+				print " </table> ";
+				print "<div class='lijntje'> </div> ";
+				print " <p id='totaal'> <u> Totaal:</u> &euro; $totaal</p> ";
+				include ("closedb.php");
 		
 		
 
