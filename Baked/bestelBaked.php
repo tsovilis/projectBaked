@@ -64,6 +64,6 @@ $query2 = mysql_query(" SELECT Taarten_id, Aantal, Kaarsjes, Tekst
 
 include ("closedb.php");
 
-header	("Location: welcomeBaked.html");
+header	("Location: accountBaked.php");
 
 ?>
