@@ -1,88 +1,84 @@
 <?php
 
-
 include("verbinding1.php");
-	
-	if(isset($_SESSION['email'])){
+
+if(isset($_SESSION['email'])){
 	echo('<a href="accountBaked.php">Account</a><br />');
 	echo('<a href="winkelwagen.php">Winkelwagen</a><br />');
 	echo('<a href="logout.php">Uitloggen</a><br />');
 	echo writeShoppingCart();
-	}
-	
-else{
-	
-	$email = $_POST['email'];
-	$wachtwoord = $_POST['wachtwoord'];
-	$result = mysql_query( "SELECT * 
-			    FROM Account 
-			    WHERE Emailadres = '$email'
-			    AND Wachtwoord = '$wachtwoord'");
+}
 
-	
+else{
+	$email = $_POST['email'];
+	$wachtwoord = MD5($_POST['wachtwoord']);
+	$result = mysql_query( "SELECT *
+						FROM Account
+						WHERE Emailadres = '$email'
+						AND Wachtwoord = '$wachtwoord'");
+
 	$pw = mysql_fetch_array($result);
 
     if (!$pw) {
-
-      print('Login incorrect.<br />Klik <a href="' .
+		print('Login incorrect.<br />Klik <a href="' .
             $_SERVER['PHP_SELF'] . '">hier</a> om het opnieuw te proberen.<br />');
-		
-		}
-		
-	else  {
- 		print('Login gelukt!<br />Klik <a href="accountBaked.php">hier</a> om verder te gaan.<br />');
-			session_start();
-			$_SESSION['login'] = "true";
-			$_SESSION['email'] = $email;
-			include("closedb.php");
-			header("location:winkelwagen.php");
+
+	}
+
+	else {
+		print('Login gelukt!<br />Klik <a href="accountBaked.php">hier</a> om verder te gaan.<br />');
+		session_start();
+		$_SESSION['login'] = "true";
+		$_SESSION['email'] = $email;
+		include("closedb.php");
+		header("location:winkelwagen.php");
 
 
-   		 include("closedb.php");
-	  	}
+    include("closedb.php");
+	}
 
     # Switch to SSL connection if necessary.
     # note the two '=' and '@' in the following:
     if (@$_SERVER['HTTPS'] !== 'on')
     {
-      # Note: this only works if https is on default port
-      $redirect = 'https://' . $_SERVER['HTTP_HOST'] . $_SERVER['REQUEST_URI'];
-      header("Location: $redirect", true, 301); // 301: "Moved permanently"
-      exit();
+		# Note: this only works if https is on default port
+		$redirect = 'https://' . $_SERVER['HTTP_HOST'] . $_SERVER['REQUEST_URI'];
+		header("Location: $redirect", true, 301); // 301: "Moved permanently"
+		exit();
     }
 
 	else{
 
-	echo <<<EOT
+echo <<<EOT
 <html>
 <head>
 <strong>Login</strong>
 </head>
 <body>
 <table border="0">
-	<form method="post" action="{$_SERVER['PHP_SELF']}">
-		<tr>
-			<td>E-mail</td>
-			<td><input type="text" name="email" size="18" value="E-mail"
-					onfocus="if(this.value == 'E-mail') {this.value = '';}" /></td>
-		</tr>
-		<tr>
-			<td>Password</td>
-			<td><input type="password" name="wachtwoord" size="18" value="password"
-					onfocus="if(this.value == 'password') {this.value = '';}"/></td>
-		</tr>
-		<tr>
-			<td colspan="2">
-		<sub>Nog geen account? <a href="registratieBaked.php"> Registreer </a></sub>
-		&nbsp;<input type="submit" value="Login" />
-		</td>
-		</tr>
-</table>		
+<form method="post" action="{$_SERVER['PHP_SELF']}">
+<tr>
+<td>E-mail</td>
+<td><input type="text" name="email" size="18" value="E-mail"
+onfocus="if(this.value == 'E-mail') {this.value = '';}" /></td>
+</tr>
+<tr>
+<td>Password</td>
+<td><input type="password" name="wachtwoord" size="18" value="password"
+onfocus="if(this.value == 'password') {this.value = '';}"/></td>
+</tr>
+<tr>
+<td colspan="2">
+<sub>Nog geen account? <a href="registratieBaked.php"> Registreer </a></sub>
+&nbsp;<input type="submit" value="Login" />
+</td>
+</tr>
+</table>
 </form>
 </body>
 </html>
 EOT;
-	}
+}
 }
 
 
