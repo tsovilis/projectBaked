@@ -3,7 +3,7 @@
 include("verbinding1.php");
 
 # catch index error
-error_reporting(E_ALL ^ E_NOTICE);
+# error_reporting(E_ALL ^ E_NOTICE);
 
 if(isset($_SESSION['email'])){
 	echo('<a href="accountBaked.php">Account</a><br />');
@@ -12,6 +12,16 @@ if(isset($_SESSION['email'])){
 }
 
 else{
+	if(!isset($_POST['email']))
+	{
+	//If not isset -> set with dumy value
+	$_POST['email'] = "undefine"; 
+	}
+	if(!isset($_POST['wachtwoord']))
+	{
+	$_POST['wachtwoord'] = "undefine";
+	}
+	
 	$email = $_POST["email"];
 	$wachtwoord = MD5($_POST["wachtwoord"]);
 	$result = mysql_query( "SELECT *
@@ -20,10 +30,10 @@ else{
 						AND Wachtwoord = '$wachtwoord'");
 
 	$pw = mysql_fetch_array($result);
-
+	
+	
     if (!$pw) {
-		print('Login incorrect.<br />Klik <a href="' .
-            $_SERVER['PHP_SELF'] . '">hier</a> om het opnieuw te proberen.<br />');
+		print('U bent nog niet ingelogd.<br />');
 
 	}
 
@@ -31,12 +41,10 @@ else{
 		print('Login gelukt!<br />Klik <a href="accountBaked.php">hier</a> om verder te gaan.<br />');
 		session_start();
 		$_SESSION['email'] = $email;
-		include("closedb.php");
 		header("location:winkelwagen.php");
-
-
-    include("closedb.php");
 	}
+	
+	include("closedb.php");
 
     # Switch to SSL connection if necessary.
     # note the two '=' and '@' in the following:
@@ -79,7 +87,7 @@ onfocus="if(this.value == 'password') {this.value = '';}"/></td>
 </body>
 </html>
 EOT;
-}
+	}
 }
 
 
