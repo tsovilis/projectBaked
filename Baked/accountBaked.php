@@ -83,7 +83,7 @@ Uw account
 <div>
 <div><h3>Persoonlijke gegevens</h3></div>
 	<div>
-		<?php
+	<?php
 		$gegevens = mysql_query("
 		SELECT 	Emailadres, Voornaam, Tussenvoegsel, Achternaam, Postcode, 
 				Straatnaam, Huisnummer, Toevoeging, Plaatsnaam, Telefoon 
@@ -92,42 +92,47 @@ Uw account
 		
 		while($dgeg = mysql_fetch_array($gegevens))
 		{
-		echo "<table border='1'>
+		echo "<form action='accountwijzigen.php' method='post'>
+		<table border='0'>
 		<tr>
 		<td width='150'><strong>E-mailadres</strong></td><td width='150'>" .$dgeg['Emailadres'].
-		"</tr>
+		"</td></tr>
 		<tr>
-		<td><strong>Voornaam</strong></td><td>".$dgeg['Voornaam'].
-		"</tr>
+		<td><strong>Voornaam</strong></td><td><input type='text' name='Voornaam' value='".$dgeg['Voornaam']."'/>
+		</td></tr>
 		<tr>
-		<td><strong>Tussenvoegsel</strong></td><td>".$dgeg['Tussenvoegsel'].
-		"</tr>
+		<td><strong>Tussenvoegsel</strong></td><td><input type='text' name='Tussenvoegsel' value='".$dgeg['Tussenvoegsel']."'/>
+		</td></tr>
 		<tr>
-		<td><strong>Achternaam</strong></td><td>".$dgeg['Achternaam'].
-		"</tr>
+		<td><strong>Achternaam</strong></td><td><input type='text' name='Achternaam' value='".$dgeg['Achternaam']."'/>
+		</td></tr>
 		<tr>
-		<td><strong>Straatnaam</strong></td><td>".$dgeg['Straatnaam'].
-		"</tr>
+		<td><strong>Straatnaam</strong></td><td><input type='text' name='Straatnaam' value='".$dgeg['Straatnaam']."'/>
+		</td></tr>
 		<tr>
-		<td><strong>Huisnummer</strong></td><td>".$dgeg['Huisnummer'].
-		"</tr>
+		<td><strong>Huisnummer</strong></td><td><input type='text' name='Huisnummer' value='".$dgeg['Huisnummer']."'/>
+		</td></tr>
 		<tr>
-		<td><strong>Toevoeging</strong></td><td>".$dgeg['Toevoeging'].
-		"</tr>
+		<td><strong>Toevoeging</strong></td><td><input type='text' name='Toevoeging' value='".$dgeg['Toevoeging']."'/>
+		</td></tr>
 		<tr>
-		<td><strong>Postcode</strong></td><td>".$dgeg['Postcode'].
-		"</tr>
+		<td><strong>Postcode</strong></td><td><input type='text' name='Postcode' value='".$dgeg['Postcode']."'/>
+		</td></tr>
 		<tr>
-		<td><strong>Plaatsnaam</strong></td><td>".$dgeg['Plaatsnaam'].
-		"</tr>
+		<td><strong>Plaatsnaam</strong></td><td><input type='text' name='Plaatsnaam' value='".$dgeg['Plaatsnaam']."'/>
+		</td></tr>
 		<tr>
-		<td><strong>Telefoon</strong></td><td>".$dgeg['Telefoon'].
-		"</tr></table>";
+		<td><strong>Telefoon</strong></td><td><input type='text' name='Telefoon' value='".$dgeg['Telefoon']."'/>
+		</td></tr>
+		<tr>
+		<td></td><td> <input type='submit' name='Wijzigen' value='Wijzigen'/> </td>
+		</tr>
+		</table>";
 		}
-		
-		include ("closedb.php");
+			
+
 		?>
-	</div>
+</div>
 </div>
 
 </div>

@@ -24,7 +24,7 @@ include ("verbinding1.php");
 			{
 			print"wel nieuwsbrief";
 			}
-		print "PENISSSSSSSS je wachtwoord of emeulsje is not de same";
+		print "Er is een fout gemaakt. Het E-mailadres of het wachtwoord is niet hetzelfde.";
 		}
 
 
