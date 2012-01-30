@@ -47,15 +47,15 @@ Uw account
 					INNER JOIN TaartBestelling ON TaartBestelling.Bestellingen_id=Bestellingen.Bestellingen_id
 					INNER JOIN Taarten ON Taarten.Taarten_id=TaartBestelling.Taarten_id
 					INNER JOIN Bestelstatus ON Bestelstatus.Statusnummer=Bestellingen.BestelStatus
-					WHERE Account.Emailadres = '" . $_SESSION['email'] . "'");
+					WHERE Account.Emailadres = '" . $_SESSION['email'] . "'
+					ORDER BY Bestellingen.Leverdatum");
 
 		echo "<table border='1'>
 		<tr>
-		<th>Bestelling ID</th>
-		<th>Account ID</th>
+		<th>Bestelling</th>
 		<th>Taartnaam</th>
 		<th>Aantal</th>
-		<th>Tekst</th>
+		<th width='150'>Tekst</th>
 		<th>Kaarsjes</th>
 		<th>Leverdatum</th>
 		<th>Status</th>
@@ -65,7 +65,6 @@ Uw account
 		  {
 		  echo "<tr>";
 		  echo "<td>" . $row['Bestellingen_id'] . "</td>";
-		  echo "<td>" . $row['Account_id'] . "</td>";
 		  echo "<td>" . $row['Taartnaam'] . "</td>";
 		  echo "<td>" . $row['Aantal'] . "</td>";
 		  echo "<td>" . $row['Tekst'] . "</td>";
@@ -74,8 +73,6 @@ Uw account
 		  echo "<td>" . $row['Status'] . "</td>";
 		  echo "</tr>";
 		  }
-	
-
 		echo "</table>";
 
 	?>
@@ -87,24 +84,46 @@ Uw account
 <div><h3>Persoonlijke gegevens</h3></div>
 	<div>
 		<?php
-		$gegevens = mysql_query("SELECT Emailadres, Voornaam, Tussenvoegsel, Achternaam, Postcode, 
-		Straatnaam, Huisnummer, Toevoeging, Plaatsnaam, Telefoon FROM Account WHERE Account_id=19");
+		$gegevens = mysql_query("
+		SELECT 	Emailadres, Voornaam, Tussenvoegsel, Achternaam, Postcode, 
+				Straatnaam, Huisnummer, Toevoeging, Plaatsnaam, Telefoon 
+		FROM Account 
+		WHERE Account.Emailadres = '" . $_SESSION['email'] . "'");
 		
 		while($dgeg = mysql_fetch_array($gegevens))
 		{
-		
-		echo $dgeg['Emailadres']. "<br />";
-		echo $dgeg['Voornaam'].  " ";
-		echo $dgeg['Tussenvoegsel']. " " ;
-		echo $dgeg['Achternaam']. "<br />";
-		echo $dgeg['Straatnaam']. " ";
-		echo $dgeg['Huisnummer']. " ";
-		echo $dgeg['Toevoeging']. "<br />";
-		echo $dgeg['Postcode']. " ";
-		echo $dgeg['Plaatsnaam']."<br />";
-		echo $dgeg['Telefoon'];
+		echo "<table border='1'>
+		<tr>
+		<td width='150'><strong>E-mailadres</strong></td><td width='150'>" .$dgeg['Emailadres'].
+		"</tr>
+		<tr>
+		<td><strong>Voornaam</strong></td><td>".$dgeg['Voornaam'].
+		"</tr>
+		<tr>
+		<td><strong>Tussenvoegsel</strong></td><td>".$dgeg['Tussenvoegsel'].
+		"</tr>
+		<tr>
+		<td><strong>Achternaam</strong></td><td>".$dgeg['Achternaam'].
+		"</tr>
+		<tr>
+		<td><strong>Straatnaam</strong></td><td>".$dgeg['Straatnaam'].
+		"</tr>
+		<tr>
+		<td><strong>Huisnummer</strong></td><td>".$dgeg['Huisnummer'].
+		"</tr>
+		<tr>
+		<td><strong>Toevoeging</strong></td><td>".$dgeg['Toevoeging'].
+		"</tr>
+		<tr>
+		<td><strong>Postcode</strong></td><td>".$dgeg['Postcode'].
+		"</tr>
+		<tr>
+		<td><strong>Plaatsnaam</strong></td><td>".$dgeg['Plaatsnaam'].
+		"</tr>
+		<tr>
+		<td><strong>Telefoon</strong></td><td>".$dgeg['Telefoon'].
+		"</tr></table>";
 		}
-	
 		
 		include ("closedb.php");
 		?>
@@ -112,14 +131,8 @@ Uw account
 </div>
 
 </div>
-		</div>
-		
-		
-
-		
-
-
-	</div>
+</div>
+</div>
 </div>
 </body>
 
