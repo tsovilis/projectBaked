@@ -36,7 +36,7 @@
 			<br />
 			Vragen? 
 			bakedtaart@gmail.com
-			of stel ze op Facebook of Tiwtter!
+			of stel ze op Facebook of Twitter!
 			<br />
 			<br />
 			<a href="http://www.facebook.com/profile.php?id=100003387643430&sk=wall"><img src="images/facebook.png" alt="Naar Facebook!"style="height:50px"/></a>
