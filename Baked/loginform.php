@@ -2,16 +2,18 @@
 
 include("verbinding1.php");
 
+# catch index error
+error_reporting(E_ALL ^ E_NOTICE);
+
 if(isset($_SESSION['email'])){
 	echo('<a href="accountBaked.php">Account</a><br />');
 	echo('<a href="winkelwagen.php">Winkelwagen</a><br />');
 	echo('<a href="logout.php">Uitloggen</a><br />');
-	echo writeShoppingCart();
 }
 
 else{
-	$email = $_POST['email'];
-	$wachtwoord = MD5($_POST['wachtwoord']);
+	$email = $_POST["email"];
+	$wachtwoord = MD5($_POST["wachtwoord"]);
 	$result = mysql_query( "SELECT *
 						FROM Account
 						WHERE Emailadres = '$email'
@@ -28,7 +30,6 @@ else{
 	else {
 		print('Login gelukt!<br />Klik <a href="accountBaked.php">hier</a> om verder te gaan.<br />');
 		session_start();
-		$_SESSION['login'] = "true";
 		$_SESSION['email'] = $email;
 		include("closedb.php");
 		header("location:winkelwagen.php");
