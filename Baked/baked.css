@@ -5,6 +5,7 @@ body{
 	background-repeat:no-repeat;
 	background-color: rgb(95,57,18);
 	line-height: 18px;
+	text-align: center;
 }
 
 #home{
@@ -28,6 +29,7 @@ img{
 #totheleft{
 	float: left;
 	padding-right: 20px;
+	text-align: left;
 }
 
 #rightside{
@@ -36,6 +38,7 @@ img{
 	float: right;
 	margin-right: 0px;
 	background-image: url('images/menu_background2.png');
+	text-align: left;
 }
 
 #rightsidelow{
@@ -52,6 +55,7 @@ img{
 	float: left;
 	margin-left: 0px;
 	background-image: url('images/content_background.png');
+	text-align: left;
 }
 
 #bestellentaartinfo{
