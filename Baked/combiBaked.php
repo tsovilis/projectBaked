@@ -1,7 +1,7 @@
 <?php
   session_start();
-  if($_SESSION['email'] != Admin){
-  header	("Location: welcomeBaked.html");
+  if(!($_SESSION['email'])){
+  header	("Location: registratieBaked.php");
   }
 ?>
 
