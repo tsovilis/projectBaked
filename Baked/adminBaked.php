@@ -1,6 +1,6 @@
 <?php
   session_start();
-  if($_SESSION['email'] != Admin){
+  if($_SESSION['email'] != 'Admin'){
   header	("Location: welcomeBaked.html");
   }
 ?>
