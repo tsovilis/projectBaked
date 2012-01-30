@@ -1,8 +1,8 @@
 <?php
-require_once('inc/functions.inc.php');
-  session_start();{
-    if($_SESSION['Login'] === 'ingelogd');
-	if($_SESSION['cart'] === 'cart');
+  session_start();
+  if($_SESSION['email'] != Admin){
+  header	("Location: welcomeBaked.html");
+  }
 }
 ?>
 
