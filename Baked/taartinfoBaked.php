@@ -70,13 +70,15 @@ obj.value=obj.value.substring(0,mlength)
 		include ("closedb.php");
 		?>
 			<table width="100%"><tr>
-						<select name="taartid">
-							<?php
-	
-										  echo "<option value=\"".$_GET['taart']."\">".$_GET['taart']."</option>\n  ";
-													
-							?>
-						</select>
+						
+
+						<?php 
+							echo "<input type='hidden' name='taartid' value='".$nummer."'>";
+			
+						?>
+						
+
+
 			<td width="50">Kaarsjes:</td>
 					<td><select name="kaarsjes">
 						<option value="0">0</option>
