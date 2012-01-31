@@ -2,6 +2,7 @@
 
 include("verbinding1.php");
 
+
 # catch index error
 # error_reporting(E_ALL ^ E_NOTICE);
 
@@ -9,6 +10,17 @@ if(isset($_SESSION['email'])){
 	echo('<a href="accountBaked.php">Account</a><br />');
 	echo('<a href="winkelwagen.php">Winkelwagen</a><br />');
 	echo('<a href="logout.php">Uitloggen</a><br />');
+	if($_SESSION['email']=='Admin')
+	{
+		echo "<div style='height:10px'></div>
+        <div class='lijntje'></div>
+        <div style='height:10px'></div>
+
+		<strong>Administrator opties</strong>
+		<br /><br />
+		<a href='adminBaked.php'>De bestellingen lijst</a> <br />
+		<a href='admintaarttoevoegenBaked.php'>Taarten toevoegen</a>";
+	} 
 }
 
 else{
@@ -41,8 +53,27 @@ else{
 		print('Login gelukt!<br />Klik <a href="accountBaked.php">hier</a> om verder te gaan.<br />');
 		session_start();
 		$_SESSION['email'] = $email;
+<<<<<<< HEAD
+	
+
+		if($_SESSION['email'] == 'Admin')
+			{
+			header("location:adminBaked.php");
+			}
+
+		else 
+			{
+			header("location:accountBaked.php");
+			}
+	      }
+=======
+		
+		if($email=='Admin')
+		header("location:adminBaked.php");
+		else	
 		header("location:winkelwagen.php");
 	}
+>>>>>>> f69c9c8065fcb18bb11c58a73287e8869314a96c
 	
 	include("closedb.php");
 
@@ -64,7 +95,7 @@ echo <<<EOT
 <strong>Login</strong>
 </head>
 <body>
-<table border="0">
+<table border='0'>
 <form method="post" action="{$_SERVER['PHP_SELF']}">
 <tr>
 <td>E-mail</td>
