@@ -41,8 +41,18 @@ else{
 		print('Login gelukt!<br />Klik <a href="accountBaked.php">hier</a> om verder te gaan.<br />');
 		session_start();
 		$_SESSION['email'] = $email;
-		header("location:winkelwagen.php");
-	}
+	
+
+		if($_SESSION['email'] == 'Admin')
+			{
+			header("location:adminBaked.php");
+			}
+
+		else 
+			{
+			header("location:accountBaked.php");
+			}
+	      }
 	
 	include("closedb.php");
 
