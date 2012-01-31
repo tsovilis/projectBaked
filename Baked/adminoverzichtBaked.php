@@ -33,10 +33,6 @@
         <div class="lijntje"></div>
         <div style="height:10px"></div>
 
-		<strong>Administrator opties</strong>
-<br /><br />
-<a href="adminBaked.php">De bestellingen lijst</a> <br />
-<a href="admintaarttoevoegenBaked.php">Taarten toevoegen</a>
 
 
 		</div>
