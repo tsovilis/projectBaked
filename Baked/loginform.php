@@ -50,7 +50,6 @@ else{
 
 	else {
 		print('Login gelukt!<br />Klik <a href="accountBaked.php">hier</a> om verder te gaan.<br />');
-		session_start();
 		$_SESSION['email'] = $email;
 
 		if($_SESSION['email'] == 'Admin')
