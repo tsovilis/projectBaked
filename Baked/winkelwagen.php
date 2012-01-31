@@ -62,7 +62,7 @@ obj.value=obj.value.substring(0,mlength)
 			  $account = $row1['Account_id'];
 			}
 		
-		$q = ("SELECT Taarten.Taarten_id, Taarten.Taartnaam, Winkelwagen.Kaarsjes, Winkelwagen.Tekst, Winkelwagen.Aantal, Winkelwagen.Prijs
+		$q = ("SELECT Winkelwagen.Product_id, Taarten.Taartnaam, Winkelwagen.Kaarsjes, Winkelwagen.Tekst, Winkelwagen.Aantal, Winkelwagen.Prijs
 					FROM Winkelwagen
 					INNER JOIN Taarten ON Taarten.Taarten_id=Winkelwagen.Taarten_id
 					WHERE Account_id='$account'");
@@ -103,7 +103,7 @@ obj.value=obj.value.substring(0,mlength)
 					
 					print " &euro; $subtotaal ";
 					print " </td>";
-					print " <td width='15' height='15'><a href='verwijderenproduct.php?verwijderen=".$producten2['Taarten_id'].
+					print " <td width='15' height='15'><a href='verwijderenproduct.php?verwijderen=".$producten2['Product_id'].
 						  "'><img src='images/verwijderen.png' width='15' height='15' alt='Dit product verwijderen' titel= 'Dit product verwijderen'/></a>
 							</td></tr> ";
 					}

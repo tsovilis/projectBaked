@@ -2,10 +2,7 @@
 include ("verbinding1.php"); 
 		
 		$product = $_GET["verwijderen"];
-		$sql=("DELETE FROM Winkelwagen WHERE Taarten_id='$product'");
-
-	    
-
+		$sql=("DELETE FROM Winkelwagen WHERE Product_id='$product'");
 
 if (!mysql_query($sql,$connection))
   {
