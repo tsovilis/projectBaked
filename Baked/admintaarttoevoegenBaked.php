@@ -1,3 +1,10 @@
+<?php
+  session_start();
+  if($_SESSION['email'] != 'Admin'){
+  header	("Location: welcomeBaked.html");
+  }
+?>
+
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
@@ -30,23 +37,11 @@ obj.value=obj.value.substring(0,mlength)
 	<div id="content">
 		
 		<div id="totheleft">
-<?php include ("snelmenuBaked.html"); ?>
+		<?php include ("snelmenuBaked.html"); ?>
 		</div>
 		
 		<div id="rightside">	
-
-<?php include ("loginform.php"); ?>
-
-		<div style="height:10px"></div>
-        <div class="lijntje"></div>
-        <div style="height:10px"></div>
-
-		<strong>Administrator opties</strong>
-<br /><br />
-<a href="adminBaked.php">De bestellingen lijst</a> <br />
-<a href="admintaarttoevoegenBaked.php">Taarten toevoegen</a>
-
-
+		<?php include ("loginform.php"); ?>
 		</div>
 		
 		<div id="inhoud">

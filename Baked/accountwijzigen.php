@@ -18,11 +18,11 @@ include ("verbinding1.php");
 				SET Voornaam 		= '$voornaam', 
 					Tussenvoegsel 	= '$tussenvoegsel', 
 					Achternaam 		= '$achternaam', 
-					Straatnaam 		= '$straatnaam'
-					Huisnummer 		= '$huisnummer'
-					Toevoeging 		= '$toevoeging'
-					Postcode 		= '$postcode'
-					Plaatsnaam 		= '$plaatsnaam'
+					Straatnaam 		= '$straatnaam',
+					Huisnummer 		= '$huisnummer',
+					Toevoeging 		= '$toevoeging',
+					Postcode 		= '$postcode',
+					Plaatsnaam 		= '$plaatsnaam',
 					Telefoon 		= '$telefoon'
 				WHERE Account.Emailadres = '" . $_SESSION['email'] . "'");
 
