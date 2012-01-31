@@ -10,6 +10,135 @@
 <meta name="keywords" content="" />
 <meta name="description" content="" />
 <link href="baked.css" rel="stylesheet" type="text/css" />
+
+<script type="text/javascript">
+<!--
+function validateForm()
+{
+var x=document.forms["register"]["voornaam"].value;
+if (x==null || x=="")
+	{
+	alert("U moet nog uw voornaam invullen.");
+	return false;
+	}
+	
+var x=document.forms["register"]["achternaam"].value;
+if (x==null || x=="")
+	{
+	alert("U moet nog uw achternaam invullen.");
+	return false;
+	}
+
+var x=document.forms["register"]["postcode"].value;
+if (x==null || x=="")
+	{
+	alert("U moet nog uw postcode invullen.");
+	return false;
+	}
+
+var x=document.forms["register"]["straatnaam"].value;
+if (x==null || x=="")
+	{
+	alert("U moet nog uw straatnaam invullen.");
+	return false;
+	}
+	
+var x=document.forms["register"]["postbusnummer"].value;
+if (x==null || x=="")
+	{
+	alert("U moet nog uw huisnummer invullen.");
+	return false;
+	}
+
+var x=document.forms["register"]["plaatsnaam"].value;
+if (x==null || x=="")
+	{
+	alert("U moet nog uw plaatsnaam invullen.");
+	return false;
+	}
+
+var x=document.forms["register"]["telefoonnummer"].value;
+if (x==null || x=="")
+	{
+	alert("U moet nog uw telefoonnummer invullen invullen.");
+	return false;
+	}
+	
+var telefoon=document.forms["register"]["telefoonnummer"].value;
+if((parseFloat(telefoon) == parseInt(telefoon)) && !isNaN(telefoon)){
+	continue;
+	} else { 
+	alert("Het telefoonnummer mag alleen cijfers bevatten.");
+	return false;
+	}
+
+var email=document.forms["register"]["emailadres"].value;
+if (email==null || email=="")
+	{
+	alert("U moet nog uw emailadres invullen.");
+	return false;
+	}	
+ 
+if (bevestigEmail==null || bevestigEmail=="")
+	{
+	alert("U moet nog uw emailadres bevestigen.");
+	return false;
+	}
+
+if (pass==null || pass=="")
+	{
+	alert("U moet nog uw wachtwoord invullen.");
+	return false;
+	}
+
+if (bevestigPass==null || bevestigPass=="")
+	{
+	alert("U moet nog uw wachtwoord bevestigen.");
+	return false;
+	} 
+ 
+var atpos=email.indexOf("@");
+var dotpos=email.lastIndexOf(".");
+if (atpos<1 || dotpos<atpos+2 || dotpos+2>=email.length)
+	{
+	alert("Dit e-mailadres is niet juist.");
+	return false;
+	}
+
+var bevestigEmail=document.forms["register"]["bevestig_emailadres"].value;
+if (email != bevestigEmail)
+	{
+	alert("Deze email adressen zijn niet hetzelfde.")
+	return false;
+	}
+	
+var pass=document.forms["register"]["wachtwoord"].value;
+
+
+var bevestigPass=document.forms["register"]["bevestig_wachtwoord"].value;
+if (pass != bevestigPass)
+	{
+	alert("Deze wachtwoorden zijn niet hetzelfde.")
+	return false;
+	}
+}
+
+function pwstrength()
+{
+  id = document.getElementById("wachtwoord");
+  count = document.getElementById("count");
+  strength = "slecht";
+  if (id.value.length > 3) {
+    strength= "middelmatig";
+  }
+  if (id.value.length > 6) {
+    strength= "goed";
+  }
+  count.innerHTML = "Kwaliteit van uw wachtwoord: " + strength;
+}
+//-->
+</script>
+
 </head>
 
 <body>
@@ -67,7 +196,7 @@ Persoonlijke gegevens
 <table>
 <tr>
 
-<form action="registratie.php" method="post">
+<form name="register" action="registratie.php" method="post" onsubmit="return validateForm();">
 
 	<tr>
 	<td> Voornaam:* </td> <td> <input type="text" name="voornaam" /> </td><td> <label name="label_voornaam"></label></td>
@@ -127,11 +256,11 @@ Persoonlijke gegevens
 
 
 	<tr>
-	<td>Wachtwoord:*</td> <td><input type="password" name="wachtwoord" /></td>
+	<td>Wachtwoord:*</td> <td><input type="password" name="wachtwoord" id="wachtwoord" onkeyup="pwstrength();"/></td> <td><p id="count">Uw wachtwoord</p>
 	</tr>
 
 	<tr>
-	<td>Bevestig wachtwoord:*</td> <td><input type="password" name="bevestig_wachtwoord" /></td>
+	<td>Bevestig wachtwoord:*</td> <td><input type="password" name="bevestig_wachtwoord"/></td>
 	</tr>
 
 	</table>
