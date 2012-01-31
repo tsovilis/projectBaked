@@ -9,6 +9,17 @@ if(isset($_SESSION['email'])){
 	echo('<a href="accountBaked.php">Account</a><br />');
 	echo('<a href="winkelwagen.php">Winkelwagen</a><br />');
 	echo('<a href="logout.php">Uitloggen</a><br />');
+		if($_SESSION['email']=='Admin')
+	{
+		echo "<div style='height:10px'></div>
+        <div class='lijntje'></div>
+        <div style='height:10px'></div>
+
+		<strong>Administrator opties</strong>
+		<br /><br />
+		<a href='adminBaked.php'>De bestellingen lijst</a> <br />
+		<a href='admintaarttoevoegenBaked.php'>Taarten toevoegen</a>";
+	} 
 }
 
 else{
