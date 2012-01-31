@@ -13,8 +13,8 @@ $query1 = mysql_query("SELECT Account_id
 			{
 			  $account = $row1['Account_id'];
 			}
-
-$sql1 ="INSERT INTO Bestellingen (Account_id) VALUES ('$account')";
+$lever = $_POST['besteljaar']. '-' . $_POST['bestelmaand'] . '-' . $_POST['besteldag'];
+$sql1 ="INSERT INTO Bestellingen (Account_id, Leverdatum) VALUES ('$account', '$lever')";
 
 if (!mysql_query($sql1,$connection))
   {
@@ -30,6 +30,7 @@ $query3 = mysql_query("SELECT Bestellingen_id
 			{
 			  $bestel = $row2['Bestellingen_id'];
 			}
+
 
 
 $query2 = mysql_query(" SELECT Taarten_id, Aantal, Kaarsjes, Tekst
