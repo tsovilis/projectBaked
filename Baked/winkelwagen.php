@@ -109,14 +109,13 @@ obj.value=obj.value.substring(0,mlength)
 					}
 				print " </table> ";
 				print "<div class='lijntje'> </div> ";
-				print "<div id='totaal'> <u> Totaal:</u> &euro; $totaal
+				print "<table width='580'><td class='texttop'>";
+				print "<a href='winkelwagenlegen.php'> Leeg winkelwagen</a>";
+				print "<td><div id='totaal'> <u> Totaal:</u> &euro; $totaal
 					  <br /><br /><a href='bestelBaked.php'><img src='images/bestellen1.png' alt='Bestel' 
-					  onmouseover='images/bestellen2.png' onmouseout='images/bestellen1.png' /></a></div> ";
+					  onmouseover='images/bestellen2.png' onmouseout='images/bestellen1.png' /></a></div></td></table> ";
 				include ("closedb.php");
-		
-		
-
-		?>
+				?>
 
 		
 

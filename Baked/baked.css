@@ -82,7 +82,10 @@ img{
 	padding-right: 30px;
 	font-size: 18px;
 	}
-	
+
+.texttop{
+	vertical-align: text-top;
+	}
 .center{
 	text-align:center
 	}
