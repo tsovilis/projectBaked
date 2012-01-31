@@ -62,7 +62,7 @@ obj.value=obj.value.substring(0,mlength)
 			  $account = $row1['Account_id'];
 			}
 		
-		$q = ("SELECT Taarten.Taartnaam, Winkelwagen.Kaarsjes, Winkelwagen.Tekst, Winkelwagen.Aantal, Winkelwagen.Prijs
+		$q = ("SELECT Taarten.Taarten_id, Taarten.Taartnaam, Winkelwagen.Kaarsjes, Winkelwagen.Tekst, Winkelwagen.Aantal, Winkelwagen.Prijs
 					FROM Winkelwagen
 					INNER JOIN Taarten ON Taarten.Taarten_id=Winkelwagen.Taarten_id
 					WHERE Account_id='$account'");
@@ -70,7 +70,7 @@ obj.value=obj.value.substring(0,mlength)
 		$query = mysql_query($q);
 					
 		
-				print "<table WIDTH='590'>";
+				print "<table width='590' border='0'>";
 				print "	<th width= '80px'> Product  </th> 
 						<th width= '35px'> Kaarsjes </th>
 						<th width= '80px'> Tekst </th>
@@ -84,27 +84,17 @@ obj.value=obj.value.substring(0,mlength)
 				while($producten2 = mysql_fetch_array($query))
 					{					
 					print " <tr><td> ";
-					print " <center> ";
 					print "{$producten2['Taartnaam']} ";
-					print " </center> ";
 					print " </td> <td>";
-					print " <center> ";
 					print "{$producten2['Kaarsjes']} ";
-					print " </center> ";
 					print " </td> <td>";
-					print " <center> ";
 					print "{$producten2['Tekst']} ";
-					print " </center> ";
 					print " </td> <td>";
 					print " <center>";
 					print "{$producten2['Aantal']} x ";
-					print " </center> ";
 					print " </td> <td>";
-					print " <center> ";
 					print " &euro; {$producten2['Prijs']}  ";
-					print " </center> ";
 					print " </td> <td>";
-					print " <center> ";
 					
 					$prijs 	= $producten2['Prijs'];
 					$aantal	= $producten2['Aantal'];
@@ -112,19 +102,23 @@ obj.value=obj.value.substring(0,mlength)
 					$totaal	= $totaal + $subtotaal;
 					
 					print " &euro; $subtotaal ";
-					print " </center> ";
-					print " </td> </tr> ";
+					print " </td>";
+					print " <td width='15' height='15'><a href='verwijderenproduct.php?verwijderen=".$producten2['Taarten_id'].
+						  "'><img src='images/verwijderen.png' width='15' height='15' alt='Dit product verwijderen' titel= 'Dit product verwijderen'/></a>
+							</td></tr> ";
 					}
 				print " </table> ";
 				print "<div class='lijntje'> </div> ";
-				print " <p id='totaal'> <u> Totaal:</u> &euro; $totaal</p> ";
+				print "<div id='totaal'> <u> Totaal:</u> &euro; $totaal
+					  <br /><br /><a href='bestelBaked.php'><img src='images/bestellen1.png' alt='Bestel' 
+					  onmouseover='images/bestellen2.png' onmouseout='images/bestellen1.png' /></a></div> ";
 				include ("closedb.php");
 		
 		
 
 		?>
 
-		<a href="bestelBaked.php"><img src="images/bestellen1.png" alt="Bestel" onmouseover="images/bestellen2.png" onmouseout="images/bestellen1.png" /></a>
+		
 
 		
 		</div>

@@ -25,11 +25,13 @@ $query2 = mysql_query("SELECT Prijs
 
 $lever = $_POST['besteldag']. '-' . $_POST['bestelmaand'] . '-' . $_POST['besteljaar'];
 
-
+$tekst = $_POST['Tekst'];
+if ($tekst == 'Wat voor tekst wilt u erop? (max 32)'){
+	$tekst = '';} 
 
 $sql="INSERT INTO Winkelwagen (Account_id, Tekst, Leverdatum, Taarten_id, Aantal, Kaarsjes, Prijs) 
 		VALUES		
-		('$account', '$_POST[Tekst]', '$lever','$_POST[taartid]', '$_POST[aantal]', '$_POST[kaarsjes]', '$prijs')";
+		('$account', '$tekst', '$lever','$_POST[taartid]', '$_POST[aantal]', '$_POST[kaarsjes]', '$prijs')";
 
 if (!mysql_query($sql,$connection))
   {

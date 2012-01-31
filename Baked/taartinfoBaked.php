@@ -96,7 +96,7 @@ obj.value=obj.value.substring(0,mlength)
 						</td></tr></table>
 			
 			Tekst:<br />
-				<textarea 	type="text" name="Tekst" cols="13" rows="2"
+				<textarea 	type="text" name="Tekst" cols="13" rows="3"
 							maxlength="32" onkeyup="return ismaxlength(this)"
 							onfocus="if(this.value == 'Wat voor tekst wilt u erop? (max 32)') {this.value = '';}">Wat voor tekst wilt u erop? (max 32)</textarea><br />
 							
