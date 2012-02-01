@@ -78,11 +78,7 @@ else{
 	else{
 
 echo <<<EOT
-<html>
-<head>
 <strong>Login</strong>
-</head>
-<body>
 <table border="0">
 <form method="post" action="{$_SERVER['PHP_SELF']}">
 <tr>
@@ -103,8 +99,6 @@ onfocus="if(this.value == 'password') {this.value = '';}"/></td>
 </tr>
 </table>
 </form>
-</body>
-</html>
 EOT;
 	}
 }
