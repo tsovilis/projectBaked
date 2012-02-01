@@ -1,53 +1,53 @@
 <?php
 include ("verbinding1.php"); 
 
-if(!($_POST[voornaam]))
+if(!($_POST['voornaam']))
 	{
 	header ("Location: welcomeBaked.html");
 	}
 
-if(!($_POST[achternaam]))
+if(!($_POST['achternaam']))
 	{
 	header ("Location: welcomeBaked.html");
 	}
 
-if(!($_POST[wachtwoord]))
+if(!($_POST['wachtwoord']))
 	{
 	header ("Location: foutmelding.php");
 	}
 
-if(!($_POST[postcode]))
+if(!($_POST['postcode']))
 	{
 	header ("Location: foutmelding.php");
 	}
 
-if(!($_POST[straatnaam]))
+if(!($_POST['straatnaam']))
 	{
 	header ("Location: foutmelding.php");
 	}
 
-if(!($_POST[postbusnummer]))
+if(!($_POST['postbusnummer']))
 	{
 	header ("Location: foutmelding.php");
 	}
 
-if(!($_POST[plaatsnaam]))
+if(!($_POST['plaatsnaam']))
 	{
 	header ("Location: foutmelding.php");
 	}
 
-if(!($_POST[telefoonnummer]))
+if(!($_POST['telefoonnummer']))
 	{
 	header ("Location: foutmelding.php");
 	}
 
-if(!($_POST[emailadres]))
+if(!($_POST['emailadres']))
 	{
 	header ("Location: foutmelding.php");
 	}
 
 
-	if($_POST[nieuwsbrief] == '1')
+	if($_POST['nieuwsbrief'] == '1')
 			{
 			$nieuwsbrief = 1;;
 			}
@@ -57,7 +57,7 @@ if(!($_POST[emailadres]))
 	
 			$encryptedpassword = md5($_POST['wachtwoord']);
 	
-			if($_POST[emailadres] == $_POST[bevestig_emailadres]  && $_POST[wachtwoord] == $_POST[bevestig_wachtwoord])
+			if($_POST['emailadres'] == $_POST['bevestig_emailadres']  && $_POST['wachtwoord'] == $_POST['bevestig_wachtwoord'])
 			    {
 				$sql="INSERT INTO Account (Emailadres,Wachtwoord,Voornaam,Tussenvoegsel,Achternaam,Postcode,Straatnaam,Huisnummer,Toevoeging,Plaatsnaam,Telefoon,Nieuwsbrief) 
 				VALUES		
@@ -65,19 +65,9 @@ if(!($_POST[emailadres]))
 
 			    }
 		
-			else	{ 
-				if($_POST[nieuwsbrief] == '1')
-					{
-					print"wel nieuwsbrief";
-					}
-				print "Er is een fout gemaakt. Het E-mailadres of het wachtwoord is niet hetzelfde.";
-				}
-
-
-
 		if (!mysql_query($sql,$connection))
 		  {
-		  die('Error: ' . mysql_error());
+		  die('Uw emailadres is al in gebruik!');
 		  }
 
 		header	("Location: accountBaked.html");
