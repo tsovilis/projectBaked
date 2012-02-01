@@ -18,7 +18,7 @@ if(isset($_SESSION['email'])){
 		<strong>Administrator opties</strong>
 		<br /><br />
 		<a href='adminBaked.php'>De bestellingen lijst</a> <br />
-		<a href='admintaarttoevoegenBaked.php'>Taarten toevoegen</a>
+		<a href='admintaarttoevoegenBaked.php'>Taarten toevoegen</a> <br/>
 		<a href='nieuwsbriefBaked.php'>Nieuwsbrief versturen</a>";
 	} 
 }
