@@ -50,27 +50,27 @@ Uw account
 					WHERE Account.Emailadres = '" . $_SESSION['email'] . "'
 					ORDER BY Bestellingen.Leverdatum");
 
-		echo "<table border='1'>
+		echo "<table border='1' class='leettable'>
 		<tr>
-		<th>Bestelling</th>
-		<th>Taartnaam</th>
-		<th>Aantal</th>
-		<th width='150'>Tekst</th>
-		<th>Kaarsjes</th>
-		<th>Leverdatum</th>
-		<th>Status</th>
+		<th class='leetcell'>Bestelling</th>
+		<th class='leetcell'>Taartnaam</th>
+		<th class='leetcell'>Aantal</th>
+		<th width='150' class='leetcell'>Tekst</th>
+		<th class='leetcell'>Kaarsjes</th>
+		<th class='leetcell'>Leverdatum</th>
+		<th class='leetcell'>Status</th>
 		</tr>";
 
 		while($row = mysql_fetch_array($result))
 		  {
 		  echo "<tr>";
-		  echo "<td>" . $row['Bestellingen_id'] . "</td>";
-		  echo "<td>" . $row['Taartnaam'] . "</td>";
-		  echo "<td>" . $row['Aantal'] . "</td>";
-		  echo "<td>" . $row['Tekst'] . "</td>";
-		  echo "<td>" . $row['Kaarsjes'] . "</td>";
-		  echo "<td>" . $row['Leverdatum'] . "</td>";
-		  echo "<td>" . $row['Status'] . "</td>";
+		  echo "<td class='leetcell'>" . $row['Bestellingen_id'] . "</td>";
+		  echo "<td class='leetcell'>" . $row['Taartnaam'] . "</td>";
+		  echo "<td class='leetcell'>" . $row['Aantal'] . "</td>";
+		  echo "<td class='leetcell'>" . $row['Tekst'] . "</td>";
+		  echo "<td class='leetcell'>" . $row['Kaarsjes'] . "</td>";
+		  echo "<td class='leetcell'>" . $row['Leverdatum'] . "</td>";
+		  echo "<td class='leetcell'>" . $row['Status'] . "</td>";
 		  echo "</tr>";
 		  }
 		echo "</table>";
