@@ -13,13 +13,8 @@
 
 <script type="text/javascript">
 //<![CDATA[
-var telefoon=document.forms["register"]["telefoonnummer"].value;
-if((parseFloat(telefoon) == parseInt(telefoon)) && !isNaN(telefoon)){
-	continue;
-	} else { 
-	alert("Het telefoonnummer mag alleen cijfers bevatten.");
-	return false;
-	}
+
+
 
 function pwstrength()
 {
@@ -33,7 +28,15 @@ function pwstrength()
     strength= "goed";
   }
   count.innerHTML = "Kwaliteit van uw wachtwoord: " + strength;
-}
+
+  var telefoon=document.forms["register"]["telefoonnummer"].value;
+if((parseFloat(telefoon) == parseInt(telefoon)) && !isNaN(telefoon)){
+	continue;
+	} else { 
+	alert("Het telefoonnummer mag alleen cijfers bevatten.");
+	return false;
+	}
+  }
 
 	
 	function verplichtevelden(veldenArray) {
@@ -63,14 +66,19 @@ function pwstrength()
 		var verplicht=new Array('voornaam','achternaam','postcode','straatnaam', 'huisnummer','plaatsnaam','telefoonnummer','emailadres','bevestigEmailadres','wachtwoord');				 
 		mijnVV = new verplichtevelden(verplicht); //mijnVV moet globaal zijn, dus geen var ervoor.
 	}
-	
+function validate()
+{
 
+window.alert(mijnVV.check());
+window.alert(pwstrength());
+ return (mijnVV.check() && pwstrength());
+}
 //]]>
 </script>
 </head>
 <body onload="bijLaden();">
 
-<form id="register" method="post" action="registratie.php" onsubmit="return mijnVV.check()">
+<form id="register" method="post"  onsubmit="validate()">
 <table>
 	<tr>
 	<td>Voornaam:*</td> <td><input type="text" id="voornaam" name="voornaam" /></td>
