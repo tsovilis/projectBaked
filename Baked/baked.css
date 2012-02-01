@@ -109,7 +109,20 @@ textarea {
 } 
 	
 .lijntje{
-height: 20px;
-background: url(images/lijntje.JPG) 10px repeat-x;
+	height: 20px;
+	background: url(images/lijntje.JPG) 10px repeat-x;
 }
 
+.leettable{
+	border-width: 1px;
+	border-spacing: 0px;
+	border-style: solid;
+	border-color: rgb(95,57,18);
+}
+
+.leetcell{
+	border-width: 1px;
+	padding: 1px;
+	border-style: solid;
+	border-color: rgb(95,57,18);
+}
