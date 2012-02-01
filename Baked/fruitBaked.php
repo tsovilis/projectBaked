@@ -53,7 +53,6 @@
 		 }
 		include ("closedb.php");
 	?>
-				
 			</div>
 		</div>
 	</div>
