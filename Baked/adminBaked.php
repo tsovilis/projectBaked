@@ -85,8 +85,6 @@ Administrator
 include ("closedb.php");
 	?>
 
-<div class='lijntje'></div>
-
 <h3>Wijzig de status van de bestelling</h3>
 
 
