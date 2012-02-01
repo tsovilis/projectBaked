@@ -88,14 +88,14 @@ include ("closedb.php");
 <h3>Wijzig de status van de bestelling</h3>
 
 
-<table border="0" class="leettable">
+<table border="0">
 <tr>
-	<th class='leetcell'>Nummer van de bestelling</th>
-	<th class='leetcell'>Status</th>
-  	<th class='leetcell'> Wijzig!</th>
+	<th>Nummer van de bestelling</th>
+	<th>Status</th>
+  	<th> Wijzig!</th>
 </tr>
 <tr>
-<td class="leetcell">
+<td>
 <form action="status.php" method="post">
 <select name="bestelling">
 	<?php
@@ -114,7 +114,7 @@ include ("closedb.php");
 	?>
 </select>
 </td>
-<td class="leetcell">
+<td>
 <select name="status">
   <option value="0">Besteld</option>
   <option value="1">Betaald</option>
@@ -122,7 +122,7 @@ include ("closedb.php");
   <option value="3">Verzonden</option>
 </select>
 </td>
-<td class="leetcell">
+<td>
 <input type="submit" value="Wijzig" />
 </td>
 </tr>
@@ -135,12 +135,12 @@ include ("closedb.php");
 <h3>Factureer</h3>
 
 
-<table border="0" class="leettable">
+<table border="0">
 <tr>
-	<th class="leetcell">Nummer van de bestelling</th>
+	<th>Nummer van de bestelling</th>
 </tr>
 <tr>
-<td class="leetcell">
+<td>
 <form action="factuurBaked.php" method="post">
 <select name="bd">
 	<?php
@@ -160,7 +160,7 @@ include ("closedb.php");
 	?>
 </select>
 </td>
-<td class="leetcell">
+<td>
 <input type="submit" value="Factuur" />
 </td>
 </tr>
