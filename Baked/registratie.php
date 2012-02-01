@@ -70,7 +70,7 @@ if(!($_POST['emailadres']))
 		  die('Uw emailadres is al in gebruik!');
 		  }
 
-		header	("Location: accountBaked.html");
+		header	("Location: gelukt.php");
 	
 
 include ("closedb.php");
