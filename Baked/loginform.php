@@ -79,8 +79,8 @@ else{
 
 echo <<<EOT
 <strong>Login</strong>
-<table border="0">
 <form method="post" action="{$_SERVER['PHP_SELF']}">
+<table border="0">
 <tr>
 <td>E-mail</td>
 <td><input type="text" name="email" size="18" value="E-mail"
