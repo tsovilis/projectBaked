@@ -18,7 +18,8 @@ if(isset($_SESSION['email'])){
 		<strong>Administrator opties</strong>
 		<br /><br />
 		<a href='adminBaked.php'>De bestellingen lijst</a> <br />
-		<a href='admintaarttoevoegenBaked.php'>Taarten toevoegen</a>";
+		<a href='admintaarttoevoegenBaked.php'>Taarten toevoegen</a>
+		<a href='nieuwsbriefBaked.php'>Nieuwsbrief versturen</a>";
 	} 
 }
 
@@ -57,7 +58,7 @@ else{
 		header("location:adminBaked.php");
 		}
 
-		else
+		if($_SESSION['email'] != 'Admin')
 		{
 		header("location:accountBaked.php");
 		}
@@ -102,6 +103,5 @@ onfocus="if(this.value == 'password') {this.value = '';}"/></td>
 EOT;
 	}
 }
-
 
 ?>
