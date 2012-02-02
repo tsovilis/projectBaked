@@ -1,3 +1,5 @@
+<!-- only accesible if you're an admin -->
+
 <?php
   session_start();
   if($_SESSION['email'] != 'Admin'){
@@ -59,6 +61,8 @@ Taart informatie
 <table>
 <tr>
 
+<!-- with this form you can add a cake. When you submit this form, uploaden.php will be activated -->
+
 <form action="uploaden.php" method="post" enctype="multipart/form-data">
 
 	<tr>
@@ -113,14 +117,8 @@ Taart informatie
 
 
 </div>
-		</div>
-		
-		
-
-		
-
-
-	</div>
+</div>	
+</div>
 </div>
 </body>
 

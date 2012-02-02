@@ -1,3 +1,5 @@
+<!-- Only accesible for admin, otherwise you go to welcomeBaked.html -->
+
 <?php
   session_start();
   if($_SESSION['email'] != 'Admin'){
@@ -42,6 +44,7 @@ Administrator
 <div>
 <div><h3>Geplaatste bestellingen</h3></div>
 
+<!-- Every order made by an user is showed here. Orderd by Leverdatum -->
 
 	<?php
 		include ("verbinding1.php"); 
@@ -84,6 +87,8 @@ Administrator
 		
 include ("closedb.php");
 	?>
+
+<!-- the admin can change the status of a order to Besteld, Betaald, Gebakken, Verzonden -->
 
 <h3>Wijzig de status van de bestelling</h3>
 
@@ -131,6 +136,7 @@ include ("closedb.php");
 
 <div class='lijntje'></div>
 
+<!-- the admin can make a invoice of an order. He can select wich order by a dropdown menu -->
 
 <h3>Factureer</h3>
 
@@ -171,6 +177,8 @@ include ("closedb.php");
 
 <form action="taartenwijzigenBaked2.php" method="post" enctype="multipart/form-data">
 
+<!-- the admin can change the specifications of a Cake by selecting the right cake by a dropdown menu en dan submit the form. This will activate taartenwijzigenBaked2.php -->
+
 <h3> Wijzig een taart!</h3>
 
 <select name="taartje">
@@ -198,6 +206,8 @@ include ("closedb.php");
 
 <div class='lijntje'></div>
 
+<!-- the admin can Delete a cake by selecting a cake by a dropdown menu an than submit the form, this will activate verwijderen.php -->
+
 <h3> Verwijder een taart!</h3>
 
 <select name="verwijderen">
@@ -224,6 +234,9 @@ include ("closedb.php");
 <div class='lijntje'></div>
 
 <form action="adminoverzichtBaked.php" method="post" enctype="multipart/form-data">
+
+
+<!-- the admin can go to his order history by submitting -->
 
 <h3> Bestellingen Archief</h3>
 

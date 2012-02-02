@@ -1,3 +1,5 @@
+<!-- Only accesible if you're an admin -->
+
 <?php
   session_start();
   if($_SESSION['email'] != 'Admin'){
@@ -47,6 +49,7 @@ Administrator
 <div>
 <div><h3>Bestelling Archief</h3></div>
 
+<!-- The next query selects al the information of orders wich are already handeld -->
 
 	<?php
 		include ("verbinding1.php"); 
@@ -92,6 +95,8 @@ include ("closedb.php");
 	?>
 
 <div class='lijntje'></div>
+
+<!-- if you accidently submitted a order to handeld, but it wasn't, you can put it bake in order list -->
 
 <h3>Wijzig de status van de bestelling</h3>
 
@@ -141,14 +146,8 @@ include ("closedb.php");
 
 
 </div>
-		</div>
-		
-		
-
-		
-
-
-	</div>
+</div>
+</div>
 </div>
 </body>
 
