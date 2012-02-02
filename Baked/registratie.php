@@ -63,7 +63,18 @@ if(!($_POST['emailadres']))
 			    {
 				$sql="INSERT INTO Account (Emailadres,Wachtwoord,Voornaam,Tussenvoegsel,Achternaam,Postcode,Straatnaam,Huisnummer,Toevoeging,Plaatsnaam,Telefoon,Nieuwsbrief) 
 				VALUES		
-				('$_POST[emailadres]','$encryptedpassword','$_POST[voornaam]','$_POST[tussenvoegselnaam]','$_POST[achternaam]','$_POST[postcode]','$_POST[straatnaam]','$_POST[postbusnummer]','$_POST[postbustoevoeging]','$_POST[plaatsnaam]','$_POST[telefoonnummer]','$nieuwsbrief')";
+				(	'" . mysql_real_escape_string(htmlentities($_POST[emailadres])) . "',
+					'" . mysql_real_escape_string(htmlentities($encryptedpassword)) . "',
+					'" . mysql_real_escape_string(htmlentities($_POST[voornaam])) . "',
+					'" . mysql_real_escape_string(htmlentities($_POST[tussenvoegselnaam])) . "',
+					'" . mysql_real_escape_string(htmlentities($_POST[achternaam])) . "',
+					'" . mysql_real_escape_string(htmlentities($_POST[postcode])) . "',
+					'" . mysql_real_escape_string(htmlentities($_POST[straatnaam])) . "',
+					'" . mysql_real_escape_string(htmlentities($_POST[postbusnummer])) . "',
+					'" . mysql_real_escape_string(htmlentities($_POST[postbustoevoeging])) . "',
+					'" . mysql_real_escape_string(htmlentities($_POST[plaatsnaam])) . "',
+					'" . mysql_real_escape_string(htmlentities($_POST[telefoonnummer])) . "',
+					'" . mysql_real_escape_string(htmlentities($nieuwsbrief)) . "' )";
 
 			    }
 		
