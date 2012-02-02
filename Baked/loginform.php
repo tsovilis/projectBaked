@@ -6,6 +6,12 @@ include("verbinding1.php");
 # error_reporting(E_ALL ^ E_NOTICE);
 
 if(isset($_SESSION['email'])){
+	$email = $_SESSION['email'];
+	$sql = mysql_query("SELECT Voornaam FROM Account WHERE Account.Emailadres='$email'");
+	$row = mysql_fetch_array($sql);
+	$naam = $row['Voornaam'];
+	
+	echo "<strong>Welkom $naam </strong><br /><br />";
 	echo('<a href="accountBaked.php">Account</a><br />');
 	echo('<a href="winkelwagen.php">Winkelwagen</a><br />');
 	echo('<a href="logout.php">Uitloggen</a><br />');
