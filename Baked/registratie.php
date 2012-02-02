@@ -46,14 +46,16 @@ if(!($_POST['emailadres']))
 	header ("Location: foutmelding.php");
 	}
 
+	if($_POST['nieuwsbrief'] == "")
+		{
+		$nieuwsbrief='0';
+		}
 
-	if($_POST['nieuwsbrief'] == '1')
-			{
-			$nieuwsbrief = 1;;
-			}
-	else{
-	     $nieuwsbrief = 0;
-	    }
+	else
+		{
+		$nieuwsbrief='1';
+		}
+
 	
 			$encryptedpassword = md5($_POST['wachtwoord']);
 	

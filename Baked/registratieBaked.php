@@ -1,3 +1,8 @@
+<?php
+  session_start();
+?>
+
+
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
@@ -6,10 +11,6 @@
 <meta name="keywords" content="" />
 <meta name="description" content="" />
 <link href="baked.css" rel="stylesheet" type="text/css" />
-
-<?php
-  session_start();
-?>
 
 <script type="text/javascript">
 //<![CDATA[
@@ -116,6 +117,8 @@ function bijLaden() {
 	var verplicht=new Array('voornaam','achternaam','postcode','straatnaam', 'huisnummer','plaatsnaam','telefoonnummer','emailadres','bevestigEmailadres','wachtwoord','bevestigWachtwoord');				 
 	mijnVV = new verplichtevelden(verplicht); //mijnVV moet globaal zijn, dus geen var ervoor.
 }
+
+
 	
 function validate()
 {
@@ -125,32 +128,40 @@ function validate()
 	{
 		return retvalue;
 	}
+
 	retvalue = telefooncijfers(); 
 	if (retvalue == false)
 	{
 		return retvalue;
 	}
+
 	retvalue = passhetzelfde();
 	if (retvalue == false)
 	{
 		return retvalue;
 	}
+
 	retvalue = emailcheck();
 	if (retvalue == false)
 	{
 		return retvalue;
 	}
+
 	retvalue = huisnummercheck();
 	if (retvalue == false)
 	{
 		return retvalue;
 	}
+
 	retvalue = postcodecheck();
 	if (retvalue == false)
 	{
 		return retvalue;
 	}
+	
 }
+
+
 
 //]]>
 </script>
@@ -207,7 +218,7 @@ function validate()
 			Persoonlijke gegevens
 			</h4>
 
-			<form id="register" method="post"  onsubmit="validate()">
+			<form id="register" action="registratie.php" method="post"  onsubmit="return validate()">
 			<table>
 				<tr>
 				<td>Voornaam:*</td> <td><input type="text" id="voornaam" name="voornaam" /></td>
@@ -280,7 +291,7 @@ function validate()
 				U ontvangt het laatste nieuws direct in uw mailbox en u kunt zich op ieder gewenst moment weer uitschrijven.
 				<br /><br />
 
-				<input type="checkbox" name="nieuwsbrief" value="1" /> Ja, ik profiteer graag van alle voordelen en acties en schrijf me in voor de Baked Nieuwsbrief.
+				<input type="checkbox" name="nieuwsbrief" value="5" /> Ja, ik profiteer graag van alle voordelen en acties en schrijf me in voor de Baked Nieuwsbrief.
 				<br />
 				<br />
 				<br />
