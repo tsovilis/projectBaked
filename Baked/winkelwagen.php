@@ -130,19 +130,19 @@ obj.value=obj.value.substring(0,mlength)
 			
 			<!-- These are the options for the delivery date of the order. -->
 			<form action="bestelBaked.php" method="post">
-				<table>
+				<table style='width:580px'>
 					<tr>
-						<td> 
+						<td style='width:50px'> 
 							Leverdatum:
 						</td>
-						<td>
+						<td style='width:40px'>
 							<select name="besteljaar">
 								<option value="2012">2012</option>
 								<option value="2013">2013</option>
 								<option value="2014">2014</option>
 							</select>
 						</td>
-						<td>
+						<td style='width:50px'>
 							<select name="bestelmaand">
 								<option value="01">Januari</option>
 								<option value="02">Februari</option>
@@ -193,16 +193,19 @@ obj.value=obj.value.substring(0,mlength)
 								<option value="31">31</option>
 							</select>
 						</td>
+						<td style='width:130px'>
+						<input
+							type="image"
+							name="submit"
+							src="images/bestellen1.png"
+							onmouseover="this.src='images/bestellen2.png'"
+							onmouseout="this.src='images/bestellen1.png'"
+						/>
+						</td>
 					</tr>
 				</table>
 
-					<input
-					type="image"
-					name="submit"
-					src="images/bestellen1.png"
-					onmouseover="this.src='images/bestellen2.png'"
-					onmouseout="this.src='images/bestellen1.png'"
-					/>
+					
 			</form>
 		</div>
 	</div>
