@@ -5,6 +5,7 @@
   }
 ?>
 
+<!-- The doctype determines the format of the page. -->
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
@@ -15,14 +16,14 @@
 * This notice must stay intact for legal use.
 * Visit http://www.dynamicdrive.com/ for full source code
 ***********************************************/
-
+<!-- This function makes sure that certain objects, like textfields, can only have a specific maximum length -->
 function ismaxlength(obj){
 var mlength=obj.getAttribute? parseInt(obj.getAttribute("maxlength")) : ""
 if (obj.getAttribute && obj.value.length>mlength)
 obj.value=obj.value.substring(0,mlength)
 }
 </script>
-
+<!-- This piece of code determines the format of the content, the title of the page and selects the stylesheet for the layout. -->
 <meta http-equiv="content-type" content="text/html; charset=utf-8" />
 <title>Baked!</title>
 <meta name="keywords" content="" />
@@ -34,42 +35,47 @@ obj.value=obj.value.substring(0,mlength)
 <div id="main">
 	<a href="infoBaked.php"><img src="images/Bakedsign.png" alt=""/></a>
 
-	<div id="content">
+	<div id="content"> <!-- The content of the website will be placed in this div. -->
 		
 		<div id="totheleft">
-		<?php include ("snelmenuBaked.html"); ?>
+		<?php include ("snelmenuBaked.html"); ?> <!-- On the left side, we have the menu. -->
 		</div>
 		
 		<div id="rightside">	
-
-		<?php include ("loginform.php"); ?>
+		<?php include ("loginform.php"); ?> <!-- On the right side we have the login. -->
 		</div>
 		
-		<div id="inhoud">
+		<div id="inhoud"> <!-- In the middle is the content of the requested page -->
 		
 		<?php
-
+		
+		// Set up connection to database.
 		include ("verbinding1.php");
 
+		// Variable $email is given to the session email.
 		$email = $_SESSION['email'];
 		
+		// The account id is selected which is connected to the email of the user which is logged in.
 		$query1 = mysql_query("SELECT Account_id
 		       			FROM Account
 		       			WHERE Emailadres='$email'");
-
+		
+		// The variable $account is given to the value of the Account_id from the database.
 		while($row1 = mysql_fetch_array($query1))
 			{
 			  $account = $row1['Account_id'];
 			}
 		
+		// A query is set up to select specific tables from the database so a shopping cart can be made.
 		$q = ("SELECT Winkelwagen.Product_id, Taarten.Taartnaam, Winkelwagen.Kaarsjes, Winkelwagen.Tekst, Winkelwagen.Aantal, Winkelwagen.Prijs
 					FROM Winkelwagen
 					INNER JOIN Taarten ON Taarten.Taarten_id=Winkelwagen.Taarten_id
 					WHERE Account_id='$account'");
 		
+		// The query is executed in SQL.
 		$query = mysql_query($q);
 					
-		
+				// A table is created with specific titles for the cells/lists.
 				print "<table width='590' border='0'>";
 				print "	<th width= '80px'> Product  </th> 
 						<th width= '35px'> Kaarsjes </th>
@@ -78,9 +84,11 @@ obj.value=obj.value.substring(0,mlength)
 						<th width= '35px'> Prijs </th> 
 						<th width= '40px'> Subtotaal </th>";
 				
+				// Variable are created which are numbers.
 				$subtotaal = 0.0;
 				$totaal = 0.0;
 				
+				// The products are shown in their correct lists.
 				while($producten2 = mysql_fetch_array($query))
 					{					
 					print " <tr><td> ";
@@ -96,11 +104,13 @@ obj.value=obj.value.substring(0,mlength)
 					print " &euro; {$producten2['Prijs']}  ";
 					print " </td> <td>";
 					
+					// The subtotal and total prices are calculated.
 					$prijs 	= $producten2['Prijs'];
 					$aantal	= $producten2['Aantal'];
 					$subtotaal = $prijs * $aantal;
 					$totaal	= $totaal + $subtotaal;
 					
+					// The subtotal and total prices are show
 					print " &euro; $subtotaal ";
 					print " </td>";
 					print " <td width='15' height='15'><a href='verwijderenproduct.php?verwijderen=".$producten2['Product_id'].
@@ -115,6 +125,8 @@ obj.value=obj.value.substring(0,mlength)
 				include ("closedb.php");
 				?>
 
+				
+				<!-- These are the options for the delivery date of the order. -->
 				<div class='lijntje'></div>
 <form action="bestelBaked.php" method="post">
 <table>
