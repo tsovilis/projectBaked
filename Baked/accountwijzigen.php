@@ -3,6 +3,8 @@ session_start();
 
 include ("verbinding1.php"); 
 		
+// All the submitted information is collected and are stored in variables
+
 		$voornaam 	= $_POST["Voornaam"];
 		$tussenvoegsel = $_POST["Tussenvoegsel"];
 		$achternaam = $_POST["Achternaam"];
@@ -13,6 +15,7 @@ include ("verbinding1.php");
 		$plaatsnaam = $_POST["Plaatsnaam"];
 		$telefoon 	= $_POST["Telefoon"];
 		
+// This query updates the submitted accountinformation
 
 		$sql=("	UPDATE Account 
 				SET Voornaam 		= '$voornaam', 
@@ -30,6 +33,8 @@ if (!mysql_query($sql,$connection))
   {
   die('Error: ' . mysql_error());
   }
+
+// After updating you get redirected to accountBaked.php
 
 header	("Location: accountBaked.php");
 
