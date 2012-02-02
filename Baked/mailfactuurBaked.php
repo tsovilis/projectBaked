@@ -17,9 +17,14 @@ $headers .= 'Content-type: text/html; charset="UTF-8"' . "\r\n";
 // Additional header
 $headers .=	'To: ';
 $headers .= $_POST['naam'];
-$headers .= '<Bakedtaart@gmail.com>' . "\r\n";
+$headers .= 'To: <>' . "\r\n";
 $headers .= 'From: Baked Taartenbedrijf <Bakedtaart@gmail.com>' . "\r\n";
 
 // Mail it
 mail($to, $subject, $message, $headers);
+
+print " <a href='adminBaked.php'> Klik hier om terug te gaan naar de site </a> <br/>";
+print "De factuur is verzonden: <br /> <br />";
+print "$message";
+
 ?>
