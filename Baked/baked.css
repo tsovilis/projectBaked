@@ -84,9 +84,8 @@ img{
 	}
 	
 #totaal{
-	text-align: right;
-	padding-right: 30px;
 	font-size: 18px;
+	width: 580px;
 	}
 
 .texttop{
