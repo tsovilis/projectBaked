@@ -34,7 +34,7 @@ if ($tekst == 'Wat voor tekst wilt u erop? (max 32)'){
 // Add the product (pie) to the shopping cart.
 $sql="INSERT INTO Winkelwagen (Account_id, Tekst, Leverdatum, Taarten_id, Aantal, Kaarsjes, Prijs) 
 		VALUES		
-		('$account', '$tekst', '$lever','$_POST[taartid]', '$_POST[aantal]', '$_POST[kaarsjes]', '$prijs')";
+		('$account', '" . mysql_real_escape_string(htmlentities($tekst)) . "', '$lever','$_POST[taartid]', '$_POST[aantal]', '$_POST[kaarsjes]', '$prijs')";
 
 if (!mysql_query($sql,$connection))
   {
