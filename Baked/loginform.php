@@ -104,6 +104,11 @@ onfocus="if(this.value == 'password') {this.value = '';}"/></td>
 &nbsp;<input type="submit" value="Login" />
 </td>
 </tr>
+<tr>
+<td colspan="2">
+<sub>Wachtwoord vergeten? <a href="wachtwoordBaked.php"> Klik hier </a></sub>
+</td>
+</tr>
 </table>
 </form>
 EOT;
