@@ -1,3 +1,5 @@
+<!-- Contact page with links to Facebook and Twitter -->
+
 <?php
   session_start();
 ?>
