@@ -2,7 +2,7 @@
   session_start();
 ?>
 
-
+<!-- The doctype determines the format of the page. -->
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
@@ -14,6 +14,7 @@
 
 <script type="text/javascript">
 //<![CDATA[
+// Check if the phone number only contains numbers.
 function telefooncijfers()
 {
 	var telefoon=document.forms["register"]["telefoonnummer"].value;
@@ -23,7 +24,7 @@ function telefooncijfers()
 			return false;
 		}
 }
-
+// Check if home number only contains numbers.
 function huisnummercheck()
 {
 	var huisnummer1=document.forms["register"]["huisnummer"].value;
@@ -33,7 +34,7 @@ function huisnummercheck()
 			return false;
 		}
 }
-
+// Check if postal code consists of four numbers followed by two letters.
 function postcodecheck()
 {
 	var postcode1 = document.forms["register"]["postcode"]; 
@@ -44,7 +45,7 @@ function postcodecheck()
 		return false;
 	}
 }
-	
+// Determine the strength of the password, by checking the length.	
 function pwstrength()
 {
 	pass = document.getElementById("wachtwoord");
@@ -58,7 +59,7 @@ function pwstrength()
 	}
 	count.innerHTML = "Kwaliteit van uw wachtwoord: " + strength;
 }
-
+// Check if e-mailaddress and confirmation e-mailaddress have the same value.
 function emailcheck()
 {	
 	var email = document.forms["register"]["emailadres"].value;
@@ -77,7 +78,7 @@ function emailcheck()
 		return false;
 	}
 }
-
+// Check if password and confirmation password have the same value.
 function passhetzelfde()
 {	
 	var pass=document.forms["register"]["wachtwoord"].value;
@@ -90,13 +91,12 @@ function passhetzelfde()
 }
 	
 function verplichtevelden(veldenArray) {
-	//constructor van de klasse
-	this.veldenArray = veldenArray; //alleen de verplichte velden
+	//Constructor of the  class.
+	this.veldenArray = veldenArray; //Only the mandatory fields
 	this.check = verplichtevelden_check; 
 }
-	
+// Check whether the mandatory fields were filled in.	
 function verplichtevelden_check() {
-	//controleer de verplichte velden
 	var foutlijst="";
 	for (var i=0; i<this.veldenArray.length; i++) {
 		if (document.getElementById(this.veldenArray[i]).value=="") {
@@ -112,14 +112,14 @@ function verplichtevelden_check() {
 	}
 }
 	
-//het formulier initialiseren
+// Initialize the form.
 function bijLaden() {
 	var verplicht=new Array('voornaam','achternaam','postcode','straatnaam', 'huisnummer','plaatsnaam','telefoonnummer','emailadres','bevestigEmailadres','wachtwoord','bevestigWachtwoord');				 
-	mijnVV = new verplichtevelden(verplicht); //mijnVV moet globaal zijn, dus geen var ervoor.
+	mijnVV = new verplichtevelden(verplicht); //mijnVV must be global, So "var" must not be placed in front of it.
 }
 
 
-	
+// Validate the checks.	
 function validate()
 {
 	var retvalue;
@@ -171,18 +171,18 @@ function validate()
 <div id="main">
 	<a href="infoBaked.php"><img src="images/Bakedsign.png" alt=""/></a>
 
-	<div id="content">
+	<div id="content"> <!-- The content of the website will be placed in this div. -->
 		
 		<div id="totheleft">
-			<?php include ("snelmenuBaked.html"); ?> 
+			<?php include ("snelmenuBaked.html"); ?> <!-- On the left side, we have the menu. -->
 		</div>
 		
 		<div id="rightside">	
 
-			<?php include ("loginform.php"); ?>
+			<?php include ("loginform.php"); ?> <!-- On the right side we have the login. -->
 
 			<div style="height:10px"></div>
-			<div class="lijntje"></div>
+			<div class="lijntje"></div> <!-- A horizontal line to separate two parts of the right side vertically. -->
 			<div style="height:10px"></div>
 
 			<strong>Privacy Policy</strong>
@@ -201,7 +201,7 @@ function validate()
 		
 
 		
-		<div id="inhoud">
+		<div id="inhoud"> <!-- In the middle is the content of the requested page. -->
 		
 			<h2>
 			Nieuw bij Baked
@@ -217,7 +217,7 @@ function validate()
 			<h4>
 			Persoonlijke gegevens
 			</h4>
-
+			<!-- You can register here. -->
 			<form id="register" action="registratie.php" method="post"  onsubmit="return validate()">
 			<table>
 				<tr>
@@ -260,7 +260,7 @@ function validate()
 				<br />
 				
 				<h4>Inloggegevens</h4>
-				
+				<!-- Here you determine your login information. -->
 				Uw e-mailadres en wachtwoord heeft u nodig om toegang te krijgen tot uw gegevens.<br />
 				Tevens zullen we u via dit e-mailadres op de hoogte houden van de status van uw bestellingen.
 				<br /><br />
@@ -286,7 +286,7 @@ function validate()
 				<h4>
 				Nieuwsbrief
 				</h4>
-				
+				<!-- Here you can decide whether or not you would like to receive the Baked! newsletter. -->
 				Blijf op de hoogte van alle acties en voordelen via de Baked Nieuwsbrief. 
 				U ontvangt het laatste nieuws direct in uw mailbox en u kunt zich op ieder gewenst moment weer uitschrijven.
 				<br /><br />

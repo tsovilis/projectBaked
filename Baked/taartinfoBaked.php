@@ -2,6 +2,7 @@
   session_start();
 ?>
 
+<!-- The doctype determines the format of the page. -->
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
@@ -12,14 +13,14 @@
 * This notice must stay intact for legal use.
 * Visit http://www.dynamicdrive.com/ for full source code
 ***********************************************/
-
+<!-- This function makes sure that certain objects, like textfields, can only have a specific maximum length -->
 function ismaxlength(obj){
 var mlength=obj.getAttribute? parseInt(obj.getAttribute("maxlength")) : ""
 if (obj.getAttribute && obj.value.length>mlength)
 obj.value=obj.value.substring(0,mlength)
 }
 </script>
-
+<!-- This piece of code determines the format of the content, the title of the page and selects the stylesheet for the layout. -->
 <meta http-equiv="content-type" content="text/html; charset=utf-8" />
 <title>Baked!</title>
 <meta name="keywords" content="" />
@@ -31,27 +32,28 @@ obj.value=obj.value.substring(0,mlength)
 <div id="main">
 	<a href="infoBaked.php"><img src="images/Bakedsign.png" alt=""/></a>
 
-	<div id="content">
+	<div id="content"> <!-- The content of the website will be placed in this div. -->
 		
-		<div id="totheleft">
-<?php include ("snelmenuBaked.html"); ?>
+		<div id="totheleft"> 
+		<?php include ("snelmenuBaked.html"); ?> <!-- On the left side, we have the menu. -->
 		</div>
 		
-		<div id="rightside">	
-
-<?php include ("loginform.php"); ?>
+		<div id="rightside"> 
+		<?php include ("loginform.php"); ?> <!-- On the right side we have the login. -->
 		</div>
 		
-		<div id="inhoud">
+		<div id="inhoud"> <!-- In the middle is the content of the requested page. -->
 		
 		<?php
 		
+		// Set up connection to the database.
 		include ("verbinding1.php"); 
 		$nummer = $_GET['taart'];
 		$result = mysql_query("SELECT *	FROM Taarten WHERE Taarten_id='$nummer'");
 		
 		$row = mysql_fetch_array($result);
 		
+		// Create table which determines the layout of the pie-info page.
 		echo "<table border='0' height='100%' width='100%'>";
 		echo "<tr height='180'>";
 		echo "<td class = 'center' width='100%-180px'><h1>" . $row['Taartnaam'] . "</h1></td>";
@@ -65,6 +67,7 @@ obj.value=obj.value.substring(0,mlength)
 		<form action="tijdelijk.php" method="post">
 		
 		<?php
+		// Order pie using the name and pries of the pie.
 		echo "<div class = 'center'><h3>" . $row['Taartnaam'] . "</h3>";
 		echo "<h4>&euro;" . $row['Prijs'] . "</h4></div>";
 		include ("closedb.php");
@@ -78,7 +81,7 @@ obj.value=obj.value.substring(0,mlength)
 						?>
 						
 
-
+			<!-- These are the options for the amount of candles on the pie and the amount of pies. -->
 			<td width="50">Kaarsjes:</td>
 					<td><select name="kaarsjes">
 						<option value="0">0</option>

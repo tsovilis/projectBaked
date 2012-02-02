@@ -5,6 +5,7 @@
   }
 ?>
 
+<!-- The doctype determines the format of the page. -->
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
@@ -21,7 +22,7 @@
 * This notice must stay intact for legal use.
 * Visit http://www.dynamicdrive.com/ for full source code
 ***********************************************/
-
+<!-- This function makes sure that certain objects, like textfields, can only have a specific maximum length -->
 function ismaxlength(obj){
 var mlength=obj.getAttribute? parseInt(obj.getAttribute("maxlength")) : ""
 if (obj.getAttribute && obj.value.length>mlength)
@@ -34,22 +35,20 @@ obj.value=obj.value.substring(0,mlength)
 <div id="main">
 	<a href="infoBaked.php"><img src="images/Bakedsign.png" alt=""/></a>
 
-	<div id="content">
+	<div id="content"> <!-- The content of the website will be placed in this div. -->
 		
 		<div id="totheleft">
-		<?php include ("snelmenuBaked.html"); ?>
+		<?php include ("snelmenuBaked.html"); ?> <!-- On the left side, we have the menu. -->
 		</div>
 		
 		<div id="rightside">	
-		<?php include ("loginform.php"); ?>
+		<?php include ("loginform.php"); ?> <!-- On the right side we have the login. -->
 		</div>
 		
-<div id="inhoud">
-<h2>
-Administrator
-</h2>
-
-<div>
+		<div id="inhoud"> <!-- In the middle is the content of the requested page. -->
+			<h2>
+			Administrator
+			</h2>
 
 <div>
 <h4>
@@ -62,9 +61,9 @@ Taart informatie
 <form action="wijzigen.php" method="post" enctype="multipart/form-data">
 
 <?php
-
+	// Set up connection to database.
 	include ("verbinding1.php"); 
-		
+				// Select name, info, price and id to be changed.
 				$taartje = $_POST["taartje"];
 				$sql1 = mysql_query("SELECT Taartnaam FROM Taarten WHERE Taartnaam='$taartje'");
 				$sql2 = mysql_query("SELECT KorteInfoTaart FROM Taarten WHERE Taartnaam='$taartje'");
@@ -79,6 +78,7 @@ Taart informatie
 	<tr>Taart id:
 	<select name="id">
 	<?php
+	// New id for the pie.
 	while($row5 = mysql_fetch_array($id))
 			{
 			  echo "<option value=\"".$row5['Taarten_id']."\">".$row5['Taarten_id']."</option>\n  ";
@@ -89,6 +89,7 @@ Taart informatie
 	</tr>
 	<tr>
 	<td> Naam voor de taart: </td> <td> <textarea type="text" name="Taartnaam" rows="2" /><?php
+	// New name for the pie.
 	while($row1 = mysql_fetch_array($sql1))
 				{
 				print "{$row1['Taartnaam']} ";
@@ -102,7 +103,9 @@ Taart informatie
 
 	<tr>
 	<td>Korte beschrijving:</td> <td> <textarea 	type="text" name="KorteInfoTaart" cols="56" rows="3"
-						maxlength="168""><?php
+						maxlength="168"">
+	<?php
+	// New info for the pie.
 	while($row2 = mysql_fetch_array($sql2))
 				{
 				print "{$row2['KorteInfoTaart']} ";
@@ -112,8 +115,10 @@ Taart informatie
 	</tr>
 
 	<tr>
-	<td>Uit gebreide beschrijving:</td> <td> <textarea 	type="text" name="BeschrijvingTaart" cols="56" rows="12"
-						maxlength="672"><?php
+	<td>Uitgebreide beschrijving:</td> <td> <textarea 	type="text" name="BeschrijvingTaart" cols="56" rows="12"
+						maxlength="672">
+	<?php
+	// New full (expanded) info for the pie.
 	while($row3 = mysql_fetch_array($sql3))
 				{
 				print "{$row3['BeschrijvingTaart']} ";
@@ -124,6 +129,7 @@ Taart informatie
 
 	<tr>
 	<td> Prijs: </td> <td> <textarea type="text" name="Prijs" rows="1" /><?php
+	// New price for the pie.
 	while($row4 = mysql_fetch_array($sql4))
 				{
 				print "{$row4['Prijs']} ";
@@ -144,12 +150,7 @@ Taart informatie
 	
 	</div>
 
-	<div>
-
-
-</div>
-		</div>
-		
+				
 		
 
 		

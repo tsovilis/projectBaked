@@ -1,6 +1,7 @@
 <?php
+// Set up connection to database.
 include ("verbinding1.php"); 
-
+// Get the information given in the form in registratieBaked.php
 if(!($_POST['voornaam']))
 	{
 	header ("Location: welcomeBaked.html");
@@ -55,10 +56,10 @@ if(!($_POST['emailadres']))
 		{
 		$nieuwsbrief='1';
 		}
-
-	
+			
+			// Add information to the database.	
 			$encryptedpassword = md5($_POST['wachtwoord']);
-	
+			
 			if($_POST['emailadres'] == $_POST['bevestig_emailadres']  && $_POST['wachtwoord'] == $_POST['bevestig_wachtwoord'])
 			    {
 				$sql="INSERT INTO Account (Emailadres,Wachtwoord,Voornaam,Tussenvoegsel,Achternaam,Postcode,Straatnaam,Huisnummer,Toevoeging,Plaatsnaam,Telefoon,Nieuwsbrief) 
@@ -82,10 +83,10 @@ if(!($_POST['emailadres']))
 		  {
 		  die('Uw emailadres is al in gebruik!');
 		  }
-
+		// Redirect to the "success" page.
 		header	("Location: gelukt.php");
 	
-
+// Close connection to database.
 include ("closedb.php");
 	
 ?>

@@ -1,3 +1,4 @@
+<!-- The doctype determines the format of the page. -->
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
@@ -12,17 +13,19 @@
 <div id="main">
 	<a href="infoBaked.php"><img src="images/Bakedsign.png" alt=""/></a>
 
-	<div id="content">
+	<div id="content"> <!-- The content of the website will be placed in this div. -->
 		
 		<div id="totheleft">
-<?php include ("snelmenuBaked.html"); ?>
+<?php include ("snelmenuBaked.html"); ?> <!-- On the left side, we have the menu. -->
 		</div>
 		
 		<div id="rightside">	
-		<?php include ("loginform.php"); ?>
+		<?php include ("loginform.php"); ?> <!-- On the right side we have the login. -->
 		</div>
 		
-		<div id="inhoud">
+		<div id="inhoud"> <!-- In the middle is the content of the requested page. -->
+
+<!-- Our Privacy Policy. -->		
 <h2>
 Privacy Policy
 </h2>

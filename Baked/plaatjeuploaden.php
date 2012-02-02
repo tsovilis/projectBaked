@@ -1,14 +1,14 @@
-
-
 <?php
+// Set up connection to database.
 include ("verbinding1.php"); 
-
+// Add information to the database.
 $sql="INSERT INTO Plaatjestaarten
 
 Taartnaam,Taartsoort,KorteInfoTaart,BeschrijvingTaart,Prijs,Plaatje) 
 VALUES		
 ('$_POST[Taartnaam]','$_POST[Taartsoort]','$_POST[KorteInfoTaart]','$_POST[BeschrijvingTaart]','$_POST[Prijs]','$_POST[Plaatje]')"; 
 
+// Determine file type and size and whether or not is accepted.
 if ((($_FILES["Plaatje"]["type"] == "image/gif")
 || ($_FILES["Plaatje"]["type"] == "image/jpeg")
 || ($_FILES["Plaatje"]["type"] == "image/pjpeg"))
@@ -41,5 +41,6 @@ else
   {
   echo "Invalid Plaatje";
   }
+  // Close connection to database.
   include ("closedb.php");
 ?> 
