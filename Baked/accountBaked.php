@@ -1,5 +1,7 @@
+<!-- session starts at login. if there's no login you can't reach this page, you get redirected to registratieBaked.php -->
+
 <?php
-  session_start();
+  session_start();					
   if(!($_SESSION['email'])){
   header	("Location: registratieBaked.php");
   }
@@ -19,10 +21,12 @@
 <div id="main">
 	<a href="infoBaked.php"><img src="images/Bakedsign.png" alt=""/></a>
 
+<!--Next is the dividing of the page with different div's. The first two are div with includes-->
+
 	<div id="content">
 		
-		<div id="totheleft">
-<?php include ("snelmenuBaked.html"); ?>
+		<div id="totheleft"> 
+<?php include ("snelmenuBaked.html");  ?>	
 		</div>
 		
 		<div id="rightside">	
@@ -41,6 +45,8 @@ Uw account
 	<div>
 <?php include ("verbinding1.php"); 
 
+// De next query is to get all the orders that the users has made. It shows only the orders of the logged in user because of: WHERE Account.Emailadres = " . $_SESSION...
+
 		$result = mysql_query("SELECT Bestellingen.Bestellingen_id, Account.Account_id, Taarten.Taartnaam, TaartBestelling.Aantal, TaartBestelling.Tekst, TaartBestelling.Kaarsjes, Bestellingen.Leverdatum, Bestelstatus.Status
 					FROM Bestellingen
 					INNER JOIN Account ON Account.Account_id=Bestellingen.Account_id
@@ -49,6 +55,8 @@ Uw account
 					INNER JOIN Bestelstatus ON Bestelstatus.Statusnummer=Bestellingen.BestelStatus
 					WHERE Account.Emailadres = '" . $_SESSION['email'] . "'
 					ORDER BY Bestellingen.Leverdatum");
+
+// Table with table headers
 
 		echo "<table border='1' class='leettable'>
 		<tr>
@@ -60,6 +68,8 @@ Uw account
 		<th class='leetcell'>Leverdatum</th>
 		<th class='leetcell'>Status</th>
 		</tr>";
+
+//As long as the array row is filled, it goes through this while loop. 
 
 		while($row = mysql_fetch_array($result))
 		  {
@@ -83,6 +93,9 @@ Uw account
 <div>
 <div><h3>Persoonlijke gegevens</h3></div>
 	<div>
+
+<!-- In this form, the user sees al his accountinformation. He can edit this because of the update query in accountwijzigen.php. When the user submits this form, accountwijzigen.php will be activated -->
+
 	<?php
 		$gegevens = mysql_query("
 		SELECT 	Emailadres, Voornaam, Tussenvoegsel, Achternaam, Postcode, 
