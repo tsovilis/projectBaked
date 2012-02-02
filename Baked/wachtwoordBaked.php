@@ -24,19 +24,21 @@
 		
 		<div id="rightside">	
 
+
 <?php include ("loginform.php"); ?>
 		</div>
 		
 		<div id="inhoud">
-				<h2>
-					Voer uw emailadres in
-				</h2>
+				<h2> Wachtwoord vergeten?</h2>
 				<h3>
+					Voer uw emailadres in en wij sturen u een nieuw wachtwoord toe!
+				</h3>
+				<h4>
 					 <form action="wachtwoordwijzigen.php" method="post">
 						<input type="text" name="email" />
-						<input type="submit" value="Submit" />
+						<input type="submit" value="Verstuur" />
 					 </form>
-				</h3>
+				</h4>
 		
 			</div>
 	</div>
