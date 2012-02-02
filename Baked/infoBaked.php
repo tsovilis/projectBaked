@@ -11,21 +11,21 @@
 	<meta name="description" content="" />
 	<link href="baked.css" rel="stylesheet" type="text/css" />
 </head>
-
+<!-- Main (index) page after the welcome page. -->
 <body>
 <div id="main">
 	<a href="infoBaked.php"><img src="images/Bakedsign.png" alt=""/></a>
 
-	<div id="content">
+	<div id="content"> <!-- The content of the website will be placed in this div. -->
 		<div id="totheleft">
-			<?php include ("snelmenuBaked.html"); ?>
+			<?php include ("snelmenuBaked.html"); ?> <!-- On the left side, we have the menu. -->
 		</div>
 		
 		<div id="rightside">	
-			<?php include ("loginform.php"); ?>
+			<?php include ("loginform.php"); ?> <!-- On the right side we have the login. -->
 		</div>
 		
-		<div id="inhoud">
+		<div id="inhoud"> <!-- In the middle is the content of the requested page. -->
 			<strong> Baked </strong>, opgericht in 1869, is een authentieke taartenbakkerij met een lange en interessante historie. 
 			De kwaliteit van onze taarten is in heel Nederland bekend en geroemd. 
 			Elke dag weer zorgen de <i> Baked </i> medewerkers voor een overheerlijke taart in uw handen.<br />

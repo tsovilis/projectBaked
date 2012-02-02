@@ -11,7 +11,7 @@
 <meta name="description" content="" />
 <link href="baked.css" rel="stylesheet" type="text/css" />
 </head>
-
+<!-- You are redirected to this page if the registration was successful. -->
 <body>
 <div id="main">
 	<a href="infoBaked.php"><img src="images/Bakedsign.png" alt=""/></a>
