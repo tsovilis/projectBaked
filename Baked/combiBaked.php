@@ -1,3 +1,5 @@
+<!-- This page shows all the cakes with Taartsoort = 1. That's because the query ends with: WHERE Taartsort ='1' -->
+
 <?php
   session_start();
 ?>
