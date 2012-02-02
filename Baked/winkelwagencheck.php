@@ -44,9 +44,11 @@ $query = mysql_query("
 		}
 	else
 		{
-		echo "Wilt u uw winkelwagen behouden? <br />";
-		echo "<a href='logout.php'> Ja </a>";
-		echo "<a href='wwweglogout.php'> Nee </a>";
+		echo "<table style='text-align: center'><tr>";
+		echo "<td colspan='2' class='center'><h2>Wilt u uw winkelwagen behouden? </h2></td></tr><tr>";
+		echo "<td><a href='logout.php'> <img src='images/behouden.png' alt='behouden' onmouseover='(src=\"images/behouden1.png\")' onmouseout='(src=\"images/behouden.png\")'/> </a></td>";
+		echo "<td><a href='wwweglogout.php'> <img src='images/nietbehouden.png' alt='niet behouden' onmouseover='(src=\"images/nietbehouden1.png\")' onmouseout='(src=\"images/nietbehouden.png\")'/> </a></td>";
+		echo "</tr></table>";
 		}
 
 ?>

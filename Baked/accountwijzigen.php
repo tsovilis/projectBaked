@@ -5,6 +5,7 @@ include ("verbinding1.php");
 		
 // All the submitted information is collected and are stored in variables
 
+		$wachtwoord	= MD5($_POST["Wachtwoord"]);
 		$voornaam 	= $_POST["Voornaam"];
 		$tussenvoegsel = $_POST["Tussenvoegsel"];
 		$achternaam = $_POST["Achternaam"];
@@ -18,7 +19,8 @@ include ("verbinding1.php");
 // This query updates the submitted accountinformation
 
 		$sql=("	UPDATE Account 
-				SET Voornaam 		= '$voornaam', 
+				SET Wachtwoord		= '$wachtwoord',
+					Voornaam 		= '$voornaam', 
 					Tussenvoegsel 	= '$tussenvoegsel', 
 					Achternaam 		= '$achternaam', 
 					Straatnaam 		= '$straatnaam',
