@@ -33,13 +33,22 @@ if(!($_SESSION['email'])){
 <?php
 
 $query = mysql_query("
-		SELECT 	Account.Account_id, Winkelwagen.Account_id 
+		SELECT 	Winkelwagen.Account_id 
 		FROM Winkelwagen 
 		INNER JOIN Account ON Account.Account_id=Winkelwagen.Account_id
 		WHERE Account.Emailadres = '" . $_SESSION['email'] . "'");
 
-while($id = mysql_fetch_array($query)){
-	if(
+	if(!(mysql_fetch_array($query)))
+		{
+		header("location:logout.php");
+		}
+	else
+		{
+		echo "Wilt u uw winkelwagen behouden? <br />";
+		echo "<a href='logout.php'> Ja </a>";
+		echo "<a href='wwweglogout.php'> Nee </a>";
+		}
+
 ?>
 
 </div>

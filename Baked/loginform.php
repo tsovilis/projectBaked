@@ -14,7 +14,7 @@ if(isset($_SESSION['email'])){
 	echo "<strong>Welkom $naam </strong><br /><br />";
 	echo('<a href="accountBaked.php">Account</a><br />');
 	echo('<a href="winkelwagen.php">Winkelwagen</a><br />');
-	echo('<a href="logout.php">Uitloggen</a><br />');
+	echo('<a href="winkelwagencheck.php">Uitloggen</a><br />');
 		if($_SESSION['email']=='Admin')
 	{
 		echo "<div style='height:10px'></div>
