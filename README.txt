@@ -30,4 +30,5 @@ Gebruikersnaam:	webdb1247
 Wachtwoord:	9ru7raku
 
 Bronvermelding niet-eigen code:
-Staat ook vermeld in de code zelf.
+Vrijwel alles is grotendeels eigencode.
+Als er niet-eigencode is gebruikt staat dat in de code zelf.
