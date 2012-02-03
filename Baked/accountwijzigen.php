@@ -5,7 +5,6 @@ include ("verbinding1.php");
 		
 // All the submitted information is collected and are stored in variables
 
-		$wachtwoord	= MD5($_POST["Wachtwoord"]);
 		$voornaam 	= $_POST["Voornaam"];
 		$tussenvoegsel = $_POST["Tussenvoegsel"];
 		$achternaam = $_POST["Achternaam"];
@@ -15,10 +14,15 @@ include ("verbinding1.php");
 		$postcode 	= $_POST["Postcode"];
 		$plaatsnaam = $_POST["Plaatsnaam"];
 		$telefoon 	= $_POST["Telefoon"];
-		
-// This query updates the submitted accountinformation
 
-		$sql=("	UPDATE Account 
+		$check = $_POST["Wachtwoord"];
+		if($check != '')
+			{
+			$wachtwoord	= MD5($_POST["Wachtwoord"]);
+			
+			// This query updates the submitted accountinformation.
+			// The password is only updated if the input is not blank.
+			$sql=("	UPDATE Account 
 				SET Wachtwoord		= '$wachtwoord',
 					Voornaam 		= '$voornaam', 
 					Tussenvoegsel 	= '$tussenvoegsel', 
@@ -30,7 +34,22 @@ include ("verbinding1.php");
 					Plaatsnaam 		= '$plaatsnaam',
 					Telefoon 		= '$telefoon'
 				WHERE Account.Emailadres = '" . $_SESSION['email'] . "'");
-
+			}
+		else
+			{
+			$sql=("	UPDATE Account 
+				SET Voornaam 		= '$voornaam', 
+					Tussenvoegsel 	= '$tussenvoegsel', 
+					Achternaam 		= '$achternaam', 
+					Straatnaam 		= '$straatnaam',
+					Huisnummer 		= '$huisnummer',
+					Toevoeging 		= '$toevoeging',
+					Postcode 		= '$postcode',
+					Plaatsnaam 		= '$plaatsnaam',
+					Telefoon 		= '$telefoon'
+				WHERE Account.Emailadres = '" . $_SESSION['email'] . "'");
+			}
+		
 if (!mysql_query($sql,$connection))
   {
   die('Error: ' . mysql_error());

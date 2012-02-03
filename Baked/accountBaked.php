@@ -98,7 +98,7 @@ Uw account
 
 	<?php
 		$gegevens = mysql_query("
-		SELECT 	Emailadres, Wachtwoord, Voornaam, Tussenvoegsel, Achternaam, Postcode, 
+		SELECT 	Emailadres, Voornaam, Tussenvoegsel, Achternaam, Postcode, 
 				Straatnaam, Huisnummer, Toevoeging, Plaatsnaam, Telefoon 
 		FROM Account 
 		WHERE Account.Emailadres = '" . $_SESSION['email'] . "'");
@@ -111,7 +111,7 @@ Uw account
 		<td width='150'><strong>E-mailadres</strong></td><td width='150'>" .$dgeg['Emailadres'].
 		"</td></tr>
 		<tr>
-		<td><strong>Wachtwoord</strong></td><td><input type='password' name='Wachtwoord' value='".$dgeg['Wachtwoord']."'/>
+		<td><strong>Wachtwoord</strong></td><td><input type='password' name='Wachtwoord' value=''/>
 		</td></tr>
 		<tr>
 		<tr>
