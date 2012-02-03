@@ -1,4 +1,5 @@
 <?php
+// session start
   session_start();
 ?>
 
@@ -26,12 +27,12 @@
 
 <?php include ("loginform.php"); ?>
 		</div>
-		
+		<!-- Message that displays that you got an email with your new password -->
 		<div id="inhoud">
-				<h2>
+				<h2> 
 					Uw nieuwe wachtwoord is naar uw emailaders toegestuurd. Met dit wachtwoord kunt u inloggen om deze vervolgens te kunnen wijzigen op de accountpagina!
 				</h2>
-				<h3>
+				<h3> <!-- Link back to the homepage -->
 					 Klik <a href="infoBaked.php"> hier </a> om terug te gaan!
 				</h3>
 		

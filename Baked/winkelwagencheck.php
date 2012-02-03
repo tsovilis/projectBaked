@@ -31,7 +31,7 @@ if(!($_SESSION['email'])){
 		
 		<div id="inhoud">
 <?php
-
+// This code checks whether the user would like to keep the shopping cart for the next time he/she logs in.
 $query = mysql_query("
 		SELECT 	Winkelwagen.Account_id 
 		FROM Winkelwagen 

@@ -121,7 +121,7 @@ obj.value=obj.value.substring(0,mlength)
 				print "<div class='lijntje'> </div> ";
 				print "<table id='totaal'>";
 				print "<td><a href='winkelwagenlegen.php'><h4> Leeg winkelwagen </h4></a></td>";
-				print "<td style='width: 100px' ><u> Totaal:</u> &euro; $totaal </td>";
+				print "<td style='width: 150px' ><u> Totaal:</u> &euro; $totaal </td>";
 				print "<table width='580'><td class='texttop'>";
 				include ("closedb.php");
 				?>

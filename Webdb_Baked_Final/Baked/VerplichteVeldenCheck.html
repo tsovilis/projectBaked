@@ -1,0 +1,164 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+<title>Baked!</title>
+<meta name="keywords" content="" />
+<meta name="description" content="" />
+<link href="baked.css" rel="stylesheet" type="text/css" />
+
+<?php
+  session_start();
+?>
+
+<script type="text/javascript">
+//<![CDATA[
+
+
+
+function pwstrength()
+{
+  id = document.getElementById("wachtwoord");
+  count = document.getElementById("count");
+  strength = "slecht";
+  if (id.value.length > 3) {
+    strength= "middelmatig";
+  }
+  if (id.value.length > 6) {
+    strength= "goed";
+  }
+  count.innerHTML = "Kwaliteit van uw wachtwoord: " + strength;
+
+  var telefoon=document.forms["register"]["telefoonnummer"].value;
+if((parseFloat(telefoon) == parseInt(telefoon)) && !isNaN(telefoon)){
+	continue;
+	} else { 
+	alert("Het telefoonnummer mag alleen cijfers bevatten.");
+	return false;
+	}
+  }
+
+	
+	function verplichtevelden(veldenArray) {
+	//constructor van de klasse
+		this.veldenArray = veldenArray; //alleen de verplichte velden
+		this.check = verplichtevelden_check; 
+	}
+	function verplichtevelden_check() {
+	//controleer de verplichte velden
+		var foutlijst="";
+		for (var i=0; i<this.veldenArray.length; i++) {
+			if (document.getElementById(this.veldenArray[i]).value=="") {
+				foutlijst += this.veldenArray[i]+", ";
+			}
+		}
+		if (foutlijst=="") {
+			return true;
+		}
+		else {
+			window.alert('Verplichte veld(en) niet ingevuld: '+foutlijst+' probeer het nog een keer.');
+			return false;
+		}
+	}
+	
+	//het formulier initialiseren
+	function bijLaden() {
+		var verplicht=new Array('voornaam','achternaam','postcode','straatnaam', 'huisnummer','plaatsnaam','telefoonnummer','emailadres','bevestigEmailadres','wachtwoord');				 
+		mijnVV = new verplichtevelden(verplicht); //mijnVV moet globaal zijn, dus geen var ervoor.
+	}
+function validate()
+{
+
+window.alert(mijnVV.check());
+window.alert(pwstrength());
+ return (mijnVV.check() && pwstrength());
+}
+//]]>
+</script>
+</head>
+<body onload="bijLaden();">
+
+<form id="register" method="post"  onsubmit="validate()">
+<table>
+	<tr>
+	<td>Voornaam:*</td> <td><input type="text" id="voornaam" name="voornaam" /></td>
+	</tr>
+	
+	<tr>
+	<td>Tussenvoegsel:</td> <td><input type="text" id="tussenvoegsel" name="tussenvoegselnaam" />(bv. van der)</td>
+	</tr>
+	
+	<tr>
+	<td>Achternaam:*</td> <td><input type="text" id="achternaam" name="achternaam" /></td>
+	</tr>
+	
+	<tr>
+	<td>Postcode:*</td> <td><input type="text" id="postcode" name="postcode" />(1234AB)</td>
+	</tr>
+	
+	<tr>
+	<td>Straatnaam:*</td> <td><input type="text" id="straatnaam" name="straatnaam" /></td>
+	</tr>
+	
+	<tr>
+	<td>Huisnummer:*</td> <td><input type="text" id="huisnummer" name="postbusnummer" /></td>
+	</tr>
+	
+	<tr>
+	<td>Toevoeging:</td> <td><input type="text" id="toevoeging" name="postbustoevoeging" />(bv. a)</td>
+	</tr>
+	
+	<tr>
+	<td>Plaatsnaam:*</td> <td><input type="text" id="plaatsnaam" name="plaatsnaam" /></td>
+	</tr>
+	
+	<tr>
+	<td>Telefoonnummer:*</td> <td><input type="text" id="telefoonnummer" name="telefoonnummer" /></td>
+	</tr>
+</table>	
+
+	<br />
+	
+	<h4>Inloggegevens</h4>
+	
+	Uw e-mailadres en wachtwoord heeft u nodig om toegang te krijgen tot uw gegevens.<br />
+	Tevens zullen we u via dit e-mailadres op de hoogte houden van de status van uw bestellingen.
+	<br /><br />
+	
+	<table>
+	<tr>
+	<td>E-mailadres:*</td> <td><input type="text" id="emailadres" name="emailadres" /></td>
+	</tr>
+	
+	<tr>
+	<td>Bevestig e-mailadres:*</td> <td><input type="text" id="bevestigEmailadres" name="bevestig_emailadres" /></td>
+	</tr>
+	
+	<tr>
+	<td>Wachtwoord:*</td> <td><input type="password" id="wachtwoord" name="wachtwoord" onkeyup="pwstrength();"/> <td><p id="count">Uw wachtwoord</p></td>
+	</tr>
+	
+	<tr>
+	<td>Bevestig wachtwoord:*</td> <td><input type="password" id="bevestigWachtwoord" name="bevestig_wachtwoord" /></td>
+	</tr>
+</table>
+
+	<h4>
+	Nieuwsbrief
+	</h4>
+	
+	Blijf op de hoogte van alle acties en voordelen via de Baked Nieuwsbrief. 
+	U ontvangt het laatste nieuws direct in uw mailbox en u kunt zich op ieder gewenst moment weer uitschrijven.
+	<br /><br />
+
+	<input type="checkbox" name="nieuwsbrief" value="1" /> Ja, ik profiteer graag van alle voordelen en acties en schrijf me in voor de Baked Nieuwsbrief.
+	<br />
+	<br />
+	<br />
+	<input type="submit" value="Opsturen" />
+	<br />
+	<br />
+</form>
+
+</body>
+</html>
