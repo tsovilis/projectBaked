@@ -15,17 +15,7 @@
 
 <script type="text/javascript">
 //<![CDATA[
-// Check if the phone number only contains numbers.
-function telefooncijfers()
-{
-	var telefoon=document.forms["register"]["telefoonnummer"].value;
-	if((parseFloat(telefoon) == parseInt(telefoon)) && !isNaN(telefoon)){
-		} 
-	else { 
-			alert("Het telefoonnummer mag alleen cijfers bevatten.");
-			return false;
-		}
-}
+
 // Check if home number only contains numbers.
 function huisnummercheck()
 {
@@ -127,12 +117,6 @@ function validate()
 {
 	var retvalue;
 	retvalue = mijnVV.check();
-	if (retvalue == false)
-	{
-		return retvalue;
-	}
-
-	retvalue = telefooncijfers(); 
 	if (retvalue == false)
 	{
 		return retvalue;
